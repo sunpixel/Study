@@ -8,33 +8,33 @@ void x_pyramid()
 	std::cout << "Введите высоту пирамиды: ";				// Вывож текста для получения ответа от пользователя
 	bool allow_print;
 	std::cin >> const_number;								// Запрос на получение данных
-	number = const_number - 1;
-	while (number >= 0)
+	number = const_number - 1;								// Полчуние колличества " " на первой строке
+	while (number >= 0)										
 	{
-		x_count = const_number - number;
-		space_print = 1;
-		allow_print = true;
+		x_count = const_number - number;					// Вычесление колличества X в строке
+		space_print = 1;									// Перемнная для понятия сколько пробелов было напечатанно
+		allow_print = true;									// Переменная отвечающая за написание пробелов и X на одной строке
 		while (allow_print)
 		{
-			if (space_print <= number)
+			if (space_print <= number)						// Пока колличество пробелов меньше либо равно числу пробелов в строке
 			{
-				std::cout << ' ';
-				space_print += 1;
+				std::cout << ' ';							// Печать пробела
+				space_print += 1;							// Добавление 1 к колличеству напечатанных пробелов
 
 			}
-			else if (const_number >= space_print)
+			else if (const_number >= space_print)			// Пока колличество символов в строке вообщем больше колличества пробелов 
 			{
-				std::cout << "X";
-				space_print += 1;
+				std::cout << "X";							// Выводим X
+				space_print += 1;							// Добавляем 1 к переменной отвечающей за колличество написанных символов
 			}
-			else
+			else											// В случае если предыдущие условия не могут быть выполнены
 			{
-				allow_print = false;
-				std::cout << '\n';
+				allow_print = false;						// Запрещает продолжение внутренего цикла
+				std::cout << '\n';							// Осущевстляет переход на новую строку
 			}
 			
 		}
-		number -= 1;
+		number -= 1;										// Отнимает от колличества пробелов 1
 	}
 }
 
@@ -42,34 +42,35 @@ void x_pyramid()
 
 void factorial_finder()
 {
-	unsigned long long int factorial_number, number, factorial, iterations = 0;
-	bool count = true;
+	int factorial_number, number, iterations = 0;							// Инициализирует переменных типа int
+	unsigned long long int factorial;										// Инициализация сверх больших переменных			
+	bool count = true;														// Инициализация переменной типа bool (True/False)
 	while (count)
 	{
-		std::cout << "Укажите число для поиска факториала: ";
-		std::cin >> number;
-
-		while (number != 0 or number < 0)
+		std::cout << "Укажите число для поиска факториала: ";				// Вывод запроса пользователю
+		std::cin >> number;													// Получения данных от пользователя
+				
+		while (number != 0 or number < 0)									// Пока число не равно 0 и число не меньше 0
 		{
-			if (iterations == 0 and number != 0 or number < 0)
+			if (iterations == 0 and number != 0 or number < 0)				// 
 			{
-				factorial_number = number;
-				factorial = factorial_number * (factorial_number - 1);
-				factorial_number -= 2;
-				iterations += 1;
+				factorial_number = number;									// Факториальное число равно числу от пользователя
+				factorial = factorial_number * (factorial_number - 1);		// Факториал = факториальное число умнженное на факториальное число - 1
+				factorial_number -= 2;										// отнимаем 2 от вакториального числа так как оно уже на 1 меньше нужного
+				iterations += 1;											// 
 			}
-			else if (iterations != 0 and factorial_number >= 2)
+			else if (iterations != 0 and factorial_number >= 2)				// 
 			{
-				factorial = factorial * factorial_number;
-				factorial_number -= 1;
-				iterations += 1;
+				factorial = factorial * factorial_number;					// 
+				factorial_number -= 1;										// 
+				iterations += 1;											// 
 			}
-			else
+			else															// 
 			{
-				std::cout << factorial << std::endl;
-				iterations = 0;
-				factorial = 0;
-				break;
+				std::cout << factorial << std::endl;						// 
+				iterations = 0;												// Сброс значений переменной
+				factorial = 0;												// Сброс значение переменной
+				break;														// Выход из цикла
 			}
 		}
 		if (number == 0 or number > 0)
