@@ -75,9 +75,9 @@ void factorial_finder()
 				break;														// Выход из цикла
 			}
 		}
-		if (number == 0 or number > 0)
+		if (number == 0)
 		{
-			std::cout << "Число не подходит!!!";
+			std::cout << "Цикл заершен!!";
 			count = false;
 		}
 	}
@@ -88,7 +88,7 @@ void factorial_finder()
 void bank_offer()
 {
 	std::cout << "Задание #3\n";
-	long double money, precent;																		// Инициализируем переменные типа double
+	double money, precent;																		// Инициализируем переменные типа double
 	int years = 1, const_years;																	// Инициализация переменных типа int (years объявленна для экономии места)
 	std::cout << "Пожалуйста введите сумму стартового капитала, " <<							// Отправка запроса пользователлю
 		"длительность вклада и процентую ставку\n";
@@ -131,7 +131,7 @@ void bank_mortage()
 
 void old_pounds_summ()
 {
-	std::cout << "Задание #5\n";																		//
+	std::cout << "Задание #5\n";
 	int old_pound, shilling, penny, old_pound2, shilling2, penny2, old_pound3, shilling3, penny3;		// Инициализирование всех переменных
 	char next = 'y';																					// Инициализированние переменной типа char, которая будет отвечать за продолжение
 	while (next != 'n')
