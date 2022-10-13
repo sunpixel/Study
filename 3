@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 struct employee
 {
@@ -6,7 +7,15 @@ struct employee
 	float income;
 };
 
+struct fraction
+{
+	int num1, num2;
+};
 
+struct Time
+{
+	int hours, minutes, seconds;
+};
 
 int excersise_1()
 {
@@ -28,7 +37,7 @@ int excersise_2()
 	char x;
 	std::cout << "Введите значение: ";
 	std::cin >> x;
-	switch (x) 
+	switch (x)
 	{
 	case 'a':
 		std::cout << "accountant\n";
@@ -57,16 +66,62 @@ int excersise_2()
 
 int excersise_3()
 {
+	fraction num1, num2;
+	float number1, number2;
+	std::cout << "Введите значение дроби: \n";
+	std::cin >> num1.num1;
+	std::cout << "----\n";
+	std::cin >> num1.num2;
+	std::cout << "Введите значение дроби: \n";
+	std::cin >> num2.num1;
+	std::cout << "----\n";
+	std::cin >> num2.num2;
+	std::cout << num1.num1 << "/" << num1.num2 << "\n" << num2.num1 << "/" << num2.num2 << std::endl;
+	number1 = num1.num1 * num2.num2 + num1.num2 * num2.num1;
+	number2 = num1.num2 * num2.num2;
+	std::cout << number1 << "/" << number2 << '\n' << number1 / number2 << std::endl;;
 	return 0;
 }
 
 int excersise_4()
 {
+	Time t1;
+	long totalsecs;
+	std::string time;
+	std::cout << "Введите время в формате '00:00:00': ";
+	std::cin >> time;
+	t1.hours = std::stoi(time.substr(0,2));
+	t1.minutes = std::stoi(time.substr(3, 5));
+	t1.seconds = std::stoi(time.substr(6, 8));
+	totalsecs = t1.hours * 3600 + t1.minutes * 60 + t1.seconds;
+	std::cout << "Всего секунд: " << totalsecs << '\n';
 	return 0;
 }
 
 int excersise_5()
 {
+	Time t1;
+	long totalsecs = 0;
+	std::string time;
+	for (int iter = 1; iter <= 2; iter++)
+	{
+		std::cout << "Введите время в формате '00:00:00': ";
+		std::cin >> time;
+		t1.hours = std::stoi(time.substr(0, 2));
+		t1.minutes = std::stoi(time.substr(3, 5));
+		t1.seconds = std::stoi(time.substr(6, 8));
+		totalsecs += t1.hours * 3600 + t1.minutes * 60 + t1.seconds;
+	}
+	t1.seconds = totalsecs % 3600 % 60;
+	t1.minutes = totalsecs % 3600 / 60;
+	t1.hours = totalsecs / 3600;
+	time.clear();
+	time += std::to_string(t1.hours);
+	time += ":";
+	time += std::to_string(t1.minutes);
+	time += ":";
+	time += std::to_string(t1.seconds);
+	std::cout << time << std::endl;
 	return 0;
 }
 
