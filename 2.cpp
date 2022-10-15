@@ -119,12 +119,12 @@ void bank_mortage()
 	std::cout << "Введите процентную ставку: ";
 	std::cin >> precent;
 
-	amount = amount - initial_payment;													// Определяем сумму для выплат (из общей суммы убираем сумму взноса)
+	amount -= initial_payment;													// Определяем сумму для выплат (из общей суммы убираем сумму взноса)
 	yearly_payment = amount / years;													// Равномерно делим сумму на все годы
-	yearly_payment = yearly_payment + (yearly_payment * (precent / 100));				// Прибавляем к сумме ежегодных выплат процент банка
+	yearly_payment = yearly_payment + (amount * (precent / 100));				// Прибавляем к сумме ежегодных выплат процент банка
 	std::cout.precision(10);
 	std::cout << "Ежегодные выплаты составляют: " << yearly_payment << std::endl;		// Выводим сумму ежегодных платежей
-	std::cout << "Общая сумма выплат: " << yearly_payment * years<< '\n';				// Выводим общую сумму к оплате
+	std::cout << "Общая сумма выплат: " << yearly_payment * years << '\n';				// Выводим общую сумму к оплате
 }
 
 
@@ -148,7 +148,7 @@ void old_pounds_summ()
 		{
 			penny3 = penny3 - 12;																		// Отнимаем от колличества пени 12
 			shilling3 += 1;																				// Прибавляем 1 к колличеству шиллингов
-		}					
+		}
 
 		if (shilling3 >= 20)																			// Проверка коллличества шиллингов на исполлнение условия
 		{
