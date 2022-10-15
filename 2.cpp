@@ -122,7 +122,7 @@ void bank_mortage()
 	amount = amount - initial_payment;													// Определяем сумму для выплат (из общей суммы убираем сумму взноса)
 	yearly_payment = amount / years;													// Равномерно делим сумму на все годы
 	yearly_payment = yearly_payment + (yearly_payment * (precent / 100));				// Прибавляем к сумме ежегодных выплат процент банка
-
+	std::cout.precision(10);
 	std::cout << "Ежегодные выплаты составляют: " << yearly_payment << std::endl;		// Выводим сумму ежегодных платежей
 	std::cout << "Общая сумма выплат: " << yearly_payment * years<< '\n';				// Выводим общую сумму к оплате
 }
