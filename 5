@@ -1,0 +1,153 @@
+#include <iostream>
+#include <string>
+
+struct Data
+{
+	int num1, num2;
+};
+
+void intMax(int size, int numbers[])
+{
+	int maxNum = 0, count = 0;
+	for (int ax = 0; ax < size; ax++)
+	{
+		if (maxNum <= numbers[ax])
+		{
+			maxNum = numbers[ax];
+			count = ax;
+		}
+		else
+		{
+			continue;
+		}
+	}
+	std::cout << "Максимальное значение в масиве: " << maxNum
+		<< ", спорядковым номером: " << count << std::endl;
+}
+
+void excersise_1()
+{
+	Data data;
+	const int size = 10;
+	int i = 0, total_amount = 2, ax = 1;
+	double fraction[size] = {}, answer = 0;
+	//std::cout << "Введите общее колличество вводимых дробей (макс: 5): ";
+	//std::cin >> total_amount;
+	while (i < total_amount * 2)
+	{
+		std::cout << "Введите значение дроби: \n";
+		std::cin >> fraction[i++];
+		std::cout << "-----\n";
+		std::cin >> fraction[i++];
+	}
+	data.num1 = fraction[ax];		// Запись переменных в структуру
+	data.num2 = fraction[ax + 2];
+	fraction[ax] = data.num1 * data.num2;
+	fraction[ax - 1] = fraction[ax - 1] * data.num2;
+	fraction[ax + 1] = fraction[ax + 1] * data.num1;
+	answer = (fraction[ax - 1] + fraction[ax + 1]) / (fraction[ax] * total_amount);
+	std::cout << answer  << std::endl;
+}
+
+void excersise_2()
+{
+	const int size = 10;
+	int numbers[size] = {}, x;
+	for (int ax = 0; ax < size; ax++)
+	{
+		std::cout << "Введите число: ";
+		std::cin >> x;
+		numbers[ax] = x;
+	}
+	intMax(size, numbers);
+}
+
+void excersise_3()
+{
+
+}
+
+void excersise_4()
+{
+
+}
+
+void excersise_5()
+{
+
+}
+
+
+bool next()
+{
+	char answer;
+	bool loop = true;
+	while (loop)
+	{
+		std::cout << "Желаете продолжить? (y/n)\n";
+		std::cin >> answer;
+		if (answer == 'n' or answer == 'N')
+		{
+			return false;
+		}
+		else if (answer == 'y' or answer == 'Y')
+		{
+			return true;
+		}
+		else
+		{
+			std::cout << "Введенно не верное значение, введите 'y' or 'n' для продолжения.\n";
+		}
+	}
+}
+
+void choice()
+{
+	int x;
+	bool loop = true;
+	while (loop)
+	{
+		std::cout << "Введите номер задания от 1-5 или 0 для завершения программы: ";
+		std::cin >> x;
+		if (x == 1)
+		{
+			excersise_1();
+			loop = next();
+		}
+		else if (x == 2)
+		{
+			excersise_2();
+			loop = next();
+		}
+		else if (x == 3)
+		{
+			excersise_3();
+			loop = next();
+		}
+		else if (x == 4)
+		{
+			excersise_4();
+			loop = next();
+		}
+		else if (x == 5)
+		{
+			excersise_5();
+			loop = next();
+		}
+		else if (x == 0)
+		{
+			loop = false;
+		}
+		else
+		{
+			std::cout << "Выбранного задания не существует. Выберите другое!\n";
+		}
+	}
+	std::cout << "Завершение программы.\n";
+}
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	choice();
+}
