@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 
+
 struct Data
 {
 	int num1, num2;
@@ -24,6 +25,31 @@ void intMax(int size, int numbers[])
 	std::cout << "Максимальное значение в масиве: " << maxNum
 		<< ", спорядковым номером: " << count << std::endl;
 }
+
+void reversit(char sent[], int length)
+{
+	char fin[256];
+	int i = 0, index;
+	while (i < length - 1)
+	{
+		if (sent[i] == 0)
+		{
+			index = i;
+			break;
+		}
+		else
+		{
+			i++;
+		}
+	}
+	for (int i = 0; i < length; i++)
+	{
+		fin[length - i] = sent[i];
+	}
+	std::cout << fin << '\n';
+}
+
+
 
 void excersise_1()
 {
@@ -64,7 +90,12 @@ void excersise_2()
 
 void excersise_3()
 {
-
+	const int number = 256;
+	char sentence[number] = { 0 };
+	std::cin.ignore();
+	std::cout << "Введите ваше предложение: ";
+	std::cin.getline(sentence, number);
+	reversit(sentence, sizeof(sentence));
 }
 
 void excersise_4()
