@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 
 struct Data
@@ -28,7 +29,8 @@ void intMax(int size, int numbers[])
 
 void reversit(char sent[], int length)
 {
-	char fin[256];
+	size_t index;
+	std::vector<int> fin(index);
 	int i = 0, index;
 	while (i < length - 1)
 	{
@@ -42,11 +44,12 @@ void reversit(char sent[], int length)
 			i++;
 		}
 	}
-	for (int i = 0; i < length; i++)
+	for (int i = 0; i < index; i++)
 	{
-		fin[length - i] = sent[i];
+		fin[index - i] = sent[i];
+		std::cout << fin[i];
 	}
-	std::cout << fin << '\n';
+	std::cout << '\n';
 }
 
 
@@ -72,7 +75,7 @@ void excersise_1()
 	fraction[ax - 1] = fraction[ax - 1] * data.num2;
 	fraction[ax + 1] = fraction[ax + 1] * data.num1;
 	answer = (fraction[ax - 1] + fraction[ax + 1]) / (fraction[ax] * total_amount);
-	std::cout << answer  << std::endl;
+	std::cout << answer << std::endl;
 }
 
 void excersise_2()
