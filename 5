@@ -14,6 +14,8 @@ struct employee
 	std::vector<char> Fname;
 };
 
+
+
 void intMax(int size, int numbers[])
 {
 	int maxNum = 0, count = 0;
@@ -71,6 +73,29 @@ void put_data(employee& emp)
 	}
 	std::cout << "\nНомер сотрудника: " << emp.number;
 }
+
+void average_len(int dist[], int len)
+{
+	double small = 10, big = 0;
+	for (int i = 0; i < len; i++)
+	{
+		if (dist[i] > big)
+		{
+			big = dist[i];
+		}
+		else if (dist[i] < small)
+		{
+			small = dist[i];
+		}
+		else
+		{
+			continue;
+		}
+	}
+	std::cout << "Среднее значение интревалов это: " << (big - small) / 2 << std::endl;
+}
+
+
 
 void excersise_1()
 {
@@ -133,7 +158,13 @@ void excersise_4()
 
 void excersise_5()
 {
-
+	int distance[5] = {};
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << "Введите " << i + 1 << "-ое число: ";
+		std::cin >> distance[i];
+	}
+	average_len(distance, 5);
 }
 
 
