@@ -8,6 +8,12 @@ struct Data
 	int num1, num2;
 };
 
+struct employee
+{
+	long int number;
+	std::vector<char> Fname;
+};
+
 void intMax(int size, int numbers[])
 {
 	int maxNum = 0, count = 0;
@@ -27,32 +33,44 @@ void intMax(int size, int numbers[])
 		<< ", спорядковым номером: " << count << std::endl;
 }
 
-void reversit(char sent[], int length)
+void reversit(std::vector<char> sent, int len)
 {
-	size_t index;
-	std::vector<int> fin(index);
-	int i = 0, index;
-	while (i < length - 1)
+	std::vector<char> reverse;
+	for (int i = len - 1; i >= 0; i--)
 	{
-		if (sent[i] == 0)
-		{
-			index = i;
-			break;
-		}
-		else
-		{
-			i++;
-		}
+		reverse.push_back(sent[i]);
 	}
-	for (int i = 0; i < index; i++)
+	for (int i = 0; i < len; i++)
 	{
-		fin[index - i] = sent[i];
-		std::cout << fin[i];
+		std::cout << reverse[i];
+
 	}
-	std::cout << '\n';
+	std::cout << "\n";
 }
 
+void get_data(employee& emp)
+{
+	char getname[256];
+	std::cout << "Введите имя сотрудника: ";
+	std::cin.ignore();
+	std::cin.getline(getname, 256);
+	for (int i = 0; getname[i] != 0; i++)
+	{
+		emp.Fname.push_back(getname[i]);
+	}
+	std::cout << "Введите номер сотрудника: ";
+	std::cin >> emp.number;
+}
 
+void put_data(employee& emp)
+{
+	std::cout << "Имя сотрудника: ";
+	for (int i = 0; i < emp.Fname.size(); i++)
+	{
+		std::cout << emp.Fname[i];
+	}
+	std::cout << "\nНомер сотрудника: " << emp.number;
+}
 
 void excersise_1()
 {
@@ -93,17 +111,24 @@ void excersise_2()
 
 void excersise_3()
 {
-	const int number = 256;
-	char sentence[number] = { 0 };
+	char sentence[256];
+	std::vector<char> sent;
 	std::cin.ignore();
 	std::cout << "Введите ваше предложение: ";
-	std::cin.getline(sentence, number);
-	reversit(sentence, sizeof(sentence));
+	std::cin.getline(sentence, 256);
+	for (int i = 0; sentence[i] != 0; i++)
+	{
+		sent.push_back(sentence[i]);
+	}
+	reversit(sent, sent.size());
 }
 
 void excersise_4()
 {
-
+	employee emp;
+	get_data(emp);
+	put_data(emp);
+	std::cout << '\n';
 }
 
 void excersise_5()
