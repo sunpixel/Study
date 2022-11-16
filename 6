@@ -1,0 +1,164 @@
+#include <iostream>
+
+class Double
+{
+	public:
+		double var;
+};
+
+class Employee
+{
+private:
+	int number;
+	float investment;
+public:
+	void get_data(int num, float invest);
+	void print_data();
+};
+
+void Employee::get_data(int num, float invest)
+{
+	number = num;
+	investment = invest;
+}
+
+void Employee::print_data()
+{
+	std::cout << "Номер сотрудника: " << number << std::endl;
+	std::cout << "Вклад сотрудника: " << investment << std::endl;
+}
+
+
+void exercise_1()
+{
+	Double d, d1, d2;
+	d.var = 0;
+	std::cout << d.var << std::endl;
+	std::cout << "Введите значение для инициализации переменной: ";
+	std::cin >> d.var;
+	std::cout << "d.var = " << d.var << std::endl;
+	std::cout << "Введите 2 занчения для складывания в классе через пробел: ";
+	std::cin >> d1.var >> d2.var;
+	d.var = d1.var + d2.var;
+	std::cout << "d.var = d1.var + d2.var => d.var = " << d.var << std::endl;
+}
+
+void exercise_2()
+{
+	Employee e1, e2, e3;
+	int x;
+	float y;
+	std::cout << "Введите номер сотрудника: ";
+	std::cin >> x;
+	std::cout << "Введите размер вклада: ";
+	std::cin >> y;
+	e1.get_data(x, y);
+
+	std::cout << "Введите номер сотрудника: ";
+	std::cin >> x;
+	std::cout << "Введите размер вклада: ";
+	std::cin >> y;
+	e2.get_data(x, y);
+
+	std::cout << "Введите номер сотрудника: ";
+	std::cin >> x;
+	std::cout << "Введите размер вклада: ";
+	std::cin >> y;
+	e3.get_data(x, y);
+
+	std::cout << "e1: \n";
+	e1.print_data();
+	std::cout << "e2: \n";
+	e2.print_data();
+	std::cout << "e3: \n";
+	e3.print_data();
+}
+
+void exercise_3()
+{
+
+}
+
+void exercise_4()
+{
+
+}
+
+void exercise_5()
+{
+
+}
+
+bool next()
+{
+	char answer;
+	bool loop = true;
+	while (loop)
+	{
+		std::cout << "Желаете продолжить? (y/n)\n";
+		std::cin >> answer;
+		if (answer == 'n' or answer == 'N')
+		{
+			return false;
+		}
+		else if (answer == 'y' or answer == 'Y')
+		{
+			return true;
+		}
+		else
+		{
+			std::cout << "Введенно не верное значение, введите 'y' or 'n' для продолжения.\n";
+		}
+	}
+}
+
+void choice()
+{
+	int x;
+	bool loop = true;
+	while (loop)
+	{
+		std::cout << "Введите номер задания от 1-5 или 0 для завершения программы: ";
+		std::cin >> x;
+		if (x == 1)
+		{
+			exercise_1();
+			loop = next();
+		}
+		else if (x == 2)
+		{
+			exercise_2();
+			loop = next();
+		}
+		else if (x == 3)
+		{
+			exercise_3();
+			loop = next();
+		}
+		else if (x == 4)
+		{
+			exercise_4();
+			loop = next();
+		}
+		else if (x == 5)
+		{
+			exercise_5();
+			loop = next();
+		}
+		else if (x == 0)
+		{
+			loop = false;
+		}
+		else
+		{
+			std::cout << "Выбранного задания не существует. Выберите другое!\n";
+		}
+	}
+	std::cout << "Завершение программы.\n";
+}
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	choice();
+}
