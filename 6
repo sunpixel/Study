@@ -2,8 +2,8 @@
 
 class Double
 {
-	public:
-		double var;
+public:
+	double var;
 };
 
 class Employee
@@ -14,6 +14,25 @@ private:
 public:
 	void get_data(int num, float invest);
 	void print_data();
+};
+
+class date
+{
+private:
+	int day, month, year;
+public:
+	void get_date(int d, int m, int y);
+	void show_date();
+};
+
+class Time
+{
+public:
+	Time(int h = 0, int m = 0, int s = 0) : hours(h), minutes(m), seconds(s) {}
+
+private:
+	int hours, minutes, seconds;
+
 };
 
 void Employee::get_data(int num, float invest)
@@ -27,6 +46,19 @@ void Employee::print_data()
 	std::cout << "Номер сотрудника: " << number << std::endl;
 	std::cout << "Вклад сотрудника: " << investment << std::endl;
 }
+
+void date::get_date(int d, int m, int y)
+{
+	day = d;
+	month = m;
+	year = y;
+}
+
+void date::show_date()
+{
+	std::cout << "Дата: " << day << "/" << month << "/" << year << std::endl;
+}
+
 
 
 void exercise_1()
@@ -76,11 +108,18 @@ void exercise_2()
 
 void exercise_3()
 {
-
+	date d;
+	int day = 0, month = 0, year = 0;
+	std::cout << "Введщите дату через пробел (пример:дд мм гггг): ";
+	std::cin >> day >> month >> year;
+	d.get_date(day, month, year);
+	d.show_date();
 }
 
 void exercise_4()
 {
+	Time t();
+	int h, m, s;
 
 }
 
