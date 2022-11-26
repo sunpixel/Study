@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 class Double
 {
@@ -28,11 +29,26 @@ public:
 class Time
 {
 public:
-	Time(int h = 0, int m = 0, int s = 0) : hours(h), minutes(m), seconds(s) {}
+	// Default constructor
+	Time()
+	{
+		hours = 0;
+		minutes = 0;
+		seconds = 0;
+	}
+	// Non-default constructor
+	Time(int h, int m, int s) 
+	{
+		hours = h;
+		minutes = m;
+		seconds = s;
+	}
+
+	void combine_time();
+	void show_time();
 
 private:
 	int hours, minutes, seconds;
-
 };
 
 void Employee::get_data(int num, float invest)
@@ -57,6 +73,16 @@ void date::get_date(int d, int m, int y)
 void date::show_date()
 {
 	std::cout << "Дата: " << day << "/" << month << "/" << year << std::endl;
+}
+
+void Time::show_time()
+{
+	std::cout << hours << ":" << minutes << ":" << seconds << std::endl;
+}
+
+void Time::combine_time()
+{
+
 }
 
 
@@ -118,9 +144,8 @@ void exercise_3()
 
 void exercise_4()
 {
-	Time t();
-	int h, m, s;
-
+	Time t(), t1(12, 30, 50), t2(11, 12, 22);
+	t().combine_time();
 }
 
 void exercise_5()
