@@ -1,0 +1,111 @@
+#include <iostream>
+
+void add_arrays(float m1, float m2)
+{
+	
+}
+
+
+
+void exercise_1()
+{
+	float m1[3] = {12.22332, 23.343242, 45.2313131};
+	float m2[3] = {32.21313, 65.323131, 22.1313256};
+	float m3[4];
+}
+
+void exercise_2()
+{
+
+}
+
+void exercise_3()
+{
+
+}
+
+void exercise_4()
+{
+
+}
+
+void exercise_5()
+{
+
+}
+
+
+
+bool next()
+{
+	char answer;
+	bool loop = true;
+	while (loop)
+	{
+		std::cout << "Желаете продолжить? (y/n)\n";
+		std::cin >> answer;
+		if (answer == 'n' or answer == 'N')
+		{
+			return false;
+		}
+		else if (answer == 'y' or answer == 'Y')
+		{
+			return true;
+		}
+		else
+		{
+			std::cout << "Введенно не верное значение, введите 'y' or 'n' для продолжения.\n";
+		}
+	}
+}
+
+void choice()
+{
+	int x;
+	bool loop = true;
+	while (loop)
+	{
+		std::cout << "Введите номер задания от 1-5 или 0 для завершения программы: ";
+		std::cin >> x;
+		if (x == 1)
+		{
+			exercise_1();
+			loop = next();
+		}
+		else if (x == 2)
+		{
+			exercise_2();
+			loop = next();
+		}
+		else if (x == 3)
+		{
+			exercise_3();
+			loop = next();
+		}
+		else if (x == 4)
+		{
+			exercise_4();
+			loop = next();
+		}
+		else if (x == 5)
+		{
+			exercise_5();
+			loop = next();
+		}
+		else if (x == 0)
+		{
+			loop = false;
+		}
+		else
+		{
+			std::cout << "Выбранного задания не существует. Выберите другое!\n";
+		}
+	}
+	std::cout << "Завершение программы.\n";
+}
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	choice();
+}
