@@ -82,12 +82,12 @@ void exercise_3()
 	int elemenet1, element2;
 	bool loop = true;
 	char answer;
-	std::cout << "Выберите номер массива от 0 до 9: \n";
+	std::cout << "Выберите номер массива от 1 до 10: \n";
 	std::cin >> elemenet1;
-	std::cout << "Выберите элемент в массиве от 0 до 9: \n";
+	std::cout << "Выберите элемент в массиве от 1 до 10: \n";
 	std::cin >> element2;
 	std::cout << "-----------------------------------------\n";
-	std::cout << ap[elemenet1][element2] << std::endl;
+	std::cout << ap[elemenet1 - 1][element2 - 1] << std::endl;
 	std::cout << "-----------------------------------------\n";
 }
 
@@ -98,8 +98,23 @@ void exercise_4()
 	for (int j = 0; j < 10; j++)
 	{
 		ap[j] = new int[10];
-		std::cout << 
+		for (int i = 0; i < 10; i++)
+		{
+			ap[j][i] = num;
+			num++;
+		}
 	}
+	// Выбор массива и переменной в нем
+	int elemenet1, element2;
+	bool loop = true;
+	char answer;
+	std::cout << "Выберите номер массива от 1 до 10: \n";
+	std::cin >> elemenet1;
+	std::cout << "Выберите элемент в массиве от 1 до 10: \n";
+	std::cin >> element2;
+	std::cout << "-----------------------------------------\n";
+	std::cout << ap[elemenet1 - 1][element2 - 1] << std::endl;
+	std::cout << "-----------------------------------------\n";
 }
 
 void exercise_5()
