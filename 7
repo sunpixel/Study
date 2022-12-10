@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+#include <algorithm>
 
 
 
@@ -37,9 +37,26 @@ void comparer(std::string s1, std::string s2)
 	std::cout << "\n----------------------\n";
 }
 
+char get_data()
+{
+	char name;
+	std::cout << "Введите имя: \n";
+	std::cin >> name;
+	return name;
+}
+
+double get_salary()
+{
+	double salary;
+	std::cout << "Введите зарплату: \n";
+	std::cin >> salary;
+	return salary;
+}
+
 struct person
 {
-
+	char* name[5];
+	double* salary[5];
 };
 
 
@@ -47,8 +64,8 @@ struct person
 void exercise_1()
 {
 	const int SIZE = 3;
-	float m1[SIZE] = {12.23324, 231.13131, 0.21212};
-	float m2[SIZE] = {2.21212, 0.2121412, 23.23131};
+	float m1[SIZE] = { 12.23324, 231.13131, 0.21212 };
+	float m2[SIZE] = { 2.21212, 0.2121412, 23.23131 };
 	float m3[SIZE] = {};
 	add_arrays(m1, m2, m3, SIZE);
 }
@@ -67,17 +84,17 @@ void exercise_2()
 
 void exercise_3()
 {
-	int a0[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-	int a1[10] = {11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-	int a2[10] = {21, 22, 23, 24, 25, 26, 27, 28, 29, 30};
-	int a3[10] = {31, 32, 33, 34, 35, 36, 37, 38, 39, 40};
-	int a4[10] = {41, 42, 43, 44, 45, 46, 47, 48, 49, 50};
-	int a5[10] = {51, 52, 53, 54, 55, 56, 57, 58, 59, 60};
-	int a6[10] = {61, 62, 63, 64, 65, 66, 67, 68, 69, 70};
-	int a7[10] = {71, 72, 73, 74, 75, 76, 77, 78, 79, 80};
-	int a8[10] = {81, 82, 83, 84, 85, 86, 87, 88, 89, 90};
-	int a9[10] = {91, 92, 93, 94, 95, 96, 97, 98, 99, 100};
-	int* ap[10] = {a0, a1, a2, a3, a4, a5, a6, a7, a8, a9};
+	int a0[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	int a1[10] = { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+	int a2[10] = { 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 };
+	int a3[10] = { 31, 32, 33, 34, 35, 36, 37, 38, 39, 40 };
+	int a4[10] = { 41, 42, 43, 44, 45, 46, 47, 48, 49, 50 };
+	int a5[10] = { 51, 52, 53, 54, 55, 56, 57, 58, 59, 60 };
+	int a6[10] = { 61, 62, 63, 64, 65, 66, 67, 68, 69, 70 };
+	int a7[10] = { 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 };
+	int a8[10] = { 81, 82, 83, 84, 85, 86, 87, 88, 89, 90 };
+	int a9[10] = { 91, 92, 93, 94, 95, 96, 97, 98, 99, 100 };
+	int* ap[10] = { a0, a1, a2, a3, a4, a5, a6, a7, a8, a9 };
 	// Выбор массива и переменной в нем
 	int elemenet1, element2;
 	bool loop = true;
@@ -94,7 +111,7 @@ void exercise_3()
 void exercise_4()
 {
 	int* ap[10];
-	static int num = 0;
+	int num = 1;
 	for (int j = 0; j < 10; j++)
 	{
 		ap[j] = new int[10];
@@ -104,6 +121,7 @@ void exercise_4()
 			num++;
 		}
 	}
+	delete[] ap;
 	// Выбор массива и переменной в нем
 	int elemenet1, element2;
 	bool loop = true;
@@ -119,7 +137,24 @@ void exercise_4()
 
 void exercise_5()
 {
-
+	person p;
+	char* names = new char[5];
+	double* sa = new double[5];
+	for (int i = 0; i < 5; i++)
+	{
+		names[i] = get_data();
+		sa[i] = get_salary();
+	}
+	std::cout << "Имя: " << p.name[0] << std::endl;
+	std::cout << " Зарплата: " << p.salary[0] << std::endl;
+	std::cout << "Имя: " << p.name[1] << std::endl;
+	std::cout << " Зарплата: " << p.salary[1] << std::endl;
+	std::cout << "Имя: " << p.name[2] << std::endl;
+	std::cout << " Зарплата: " << p.salary[2] << std::endl;
+	std::cout << "Имя: " << p.name[3] << std::endl;
+	std::cout << " Зарплата: " << p.salary[3] << std::endl;
+	std::cout << "Имя: " << p.name[4] << std::endl;
+	std::cout << " Зарплата: " << p.salary[4] << std::endl;
 }
 
 
