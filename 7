@@ -3,6 +3,7 @@
 
 
 
+
 void add_arrays(float* m1, float* m2, float* m3, int s)
 {
 	for (int i = 0; i < s; i++)
@@ -10,6 +11,30 @@ void add_arrays(float* m1, float* m2, float* m3, int s)
 		m3[i] = m1[i] + m2[i];
 		std::cout << m3[i] << std::endl;
 	}
+}
+
+void comparer(std::string s1, std::string s2)
+{
+	std::cout << "----------------------\n";
+	for (int i = 0; i < s1.size(); i++)
+	{
+		char a = s1[i];
+		char b = s2[i];
+		int a1 = a, b1 = b;
+		if (a1 > b1)
+		{
+			std::cout << " -1 ";
+		}
+		else if (a1 < b1)
+		{
+			std::cout << " 1 ";
+		}
+		else
+		{
+			std::cout << " 0 ";
+		}
+	}
+	std::cout << "\n----------------------\n";
 }
 
 struct person
@@ -32,11 +57,12 @@ void exercise_2()
 {
 	std::string s1;
 	std::string s2;
+	std::cin.ignore();
 	std::cout << "Введите первую строку: \n";
 	std::cin >> s1;
-	std::wcout << "Введите вторую строку: \n";
+	std::cout << "Введите вторую строку: \n";
 	std::cin >> s2;
-
+	comparer(s1, s2);
 }
 
 void exercise_3()
@@ -72,6 +98,7 @@ void exercise_4()
 	for (int j = 0; j < 10; j++)
 	{
 		ap[j] = new int[10];
+		std::cout << 
 	}
 }
 
