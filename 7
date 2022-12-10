@@ -1,32 +1,78 @@
 #include <iostream>
+#include <string>
 
-void add_arrays(float m1, float m2)
+
+
+void add_arrays(float* m1, float* m2, float* m3, int s)
 {
-	
+	for (int i = 0; i < s; i++)
+	{
+		m3[i] = m1[i] + m2[i];
+		std::cout << m3[i] << std::endl;
+	}
 }
+
+struct person
+{
+
+};
 
 
 
 void exercise_1()
 {
-	float m1[3] = {12.22332, 23.343242, 45.2313131};
-	float m2[3] = {32.21313, 65.323131, 22.1313256};
-	float m3[4];
+	const int SIZE = 3;
+	float m1[SIZE] = {12.23324, 231.13131, 0.21212};
+	float m2[SIZE] = {2.21212, 0.2121412, 23.23131};
+	float m3[SIZE] = {};
+	add_arrays(m1, m2, m3, SIZE);
 }
 
 void exercise_2()
 {
+	std::string s1;
+	std::string s2;
+	std::cout << "Введите первую строку: \n";
+	std::cin >> s1;
+	std::wcout << "Введите вторую строку: \n";
+	std::cin >> s2;
 
 }
 
 void exercise_3()
 {
-
+	int a0[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+	int a1[10] = {11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+	int a2[10] = {21, 22, 23, 24, 25, 26, 27, 28, 29, 30};
+	int a3[10] = {31, 32, 33, 34, 35, 36, 37, 38, 39, 40};
+	int a4[10] = {41, 42, 43, 44, 45, 46, 47, 48, 49, 50};
+	int a5[10] = {51, 52, 53, 54, 55, 56, 57, 58, 59, 60};
+	int a6[10] = {61, 62, 63, 64, 65, 66, 67, 68, 69, 70};
+	int a7[10] = {71, 72, 73, 74, 75, 76, 77, 78, 79, 80};
+	int a8[10] = {81, 82, 83, 84, 85, 86, 87, 88, 89, 90};
+	int a9[10] = {91, 92, 93, 94, 95, 96, 97, 98, 99, 100};
+	int* ap[10] = {a0, a1, a2, a3, a4, a5, a6, a7, a8, a9};
+	// Выбор массива и переменной в нем
+	int elemenet1, element2;
+	bool loop = true;
+	char answer;
+	std::cout << "Выберите номер массива от 0 до 9: \n";
+	std::cin >> elemenet1;
+	std::cout << "Выберите элемент в массиве от 0 до 9: \n";
+	std::cin >> element2;
+	std::cout << "-----------------------------------------\n";
+	std::cout << ap[elemenet1][element2] << std::endl;
+	std::cout << "-----------------------------------------\n";
 }
 
 void exercise_4()
 {
-
+	int* ap[10];
+	static int num = 0;
+	for (int j = 0; j < 10; j++)
+	{
+		ap[j] = new int[10];
+	}
 }
 
 void exercise_5()
