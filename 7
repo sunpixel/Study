@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 
 
@@ -37,26 +37,10 @@ void comparer(std::string s1, std::string s2)
 	std::cout << "\n----------------------\n";
 }
 
-char get_data()
+struct Person 
 {
-	char name;
-	std::cout << "Введите имя: \n";
-	std::cin >> name;
-	return name;
-}
-
-double get_salary()
-{
-	double salary;
-	std::cout << "Введите зарплату: \n";
-	std::cin >> salary;
-	return salary;
-}
-
-struct person
-{
-	char* name[5];
-	double* salary[5];
+	std::string* names;
+	double* salary;
 };
 
 
@@ -121,7 +105,6 @@ void exercise_4()
 			num++;
 		}
 	}
-	delete[] ap;
 	// Выбор массива и переменной в нем
 	int elemenet1, element2;
 	bool loop = true;
@@ -137,24 +120,43 @@ void exercise_4()
 
 void exercise_5()
 {
-	person p;
-	char* names = new char[5];
-	double* sa = new double[5];
-	for (int i = 0; i < 5; i++)
+	Person *p, d;
+	p = &d;
+	int i = 0, num_of_employees = 0;
+	std::cout << "Введите колличество сотрудников: ";
+	std::cin >> num_of_employees;
+	p->names = new std::string[num_of_employees];
+	p->salary = new double[num_of_employees];
+
+	while (i < num_of_employees)
 	{
-		names[i] = get_data();
-		sa[i] = get_salary();
+		std::cin.ignore();
+		std::cout << "Введите имя сотрудника: ";
+		std::cin >> p->names[i];
+		std::cin.ignore();
+		std::cout << "Введите зарплату сотрудника: ";
+		std::cin >> p->salary[i];
+		i++;
 	}
-	std::cout << "Имя: " << p.name[0] << std::endl;
-	std::cout << " Зарплата: " << p.salary[0] << std::endl;
-	std::cout << "Имя: " << p.name[1] << std::endl;
-	std::cout << " Зарплата: " << p.salary[1] << std::endl;
-	std::cout << "Имя: " << p.name[2] << std::endl;
-	std::cout << " Зарплата: " << p.salary[2] << std::endl;
-	std::cout << "Имя: " << p.name[3] << std::endl;
-	std::cout << " Зарплата: " << p.salary[3] << std::endl;
-	std::cout << "Имя: " << p.name[4] << std::endl;
-	std::cout << " Зарплата: " << p.salary[4] << std::endl;
+
+	i = 0;
+	std::cout << "Не сортированный список.\n" << "---\n";
+
+	while (i < num_of_employees)
+	{
+		std::cout
+			<< "---------------------------\n"
+			<< "Имя сотрудника: "
+			<< p->names[i] << std::endl
+			<< "Зарплата сотрудника: "
+			<< p->salary[i] << std::endl
+			<< "---------------------------\n";
+		i++;
+	}
+
+	std::vector<int> sort_order;
+
+
 }
 
 
