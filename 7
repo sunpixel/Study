@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 
 
@@ -127,6 +128,8 @@ void exercise_5()
 	std::cin >> num_of_employees;
 	p->names = new std::string[num_of_employees];
 	p->salary = new double[num_of_employees];
+	std::vector<double> sal;
+	std::vector<int> sort_order;
 
 	while (i < num_of_employees)
 	{
@@ -136,11 +139,15 @@ void exercise_5()
 		std::cin.ignore();
 		std::cout << "Введите зарплату сотрудника: ";
 		std::cin >> p->salary[i];
+
+		sal.push_back(p->salary[i]);
+
 		i++;
 	}
 
 	i = 0;
-	std::cout << "Не сортированный список.\n" << "---\n";
+	std::cout << "---\n" 
+		<< "Не сортированный список.\n";
 
 	while (i < num_of_employees)
 	{
@@ -154,9 +161,53 @@ void exercise_5()
 		i++;
 	}
 
-	std::vector<int> sort_order;
-
-
+	bool loop = true;
+	while (loop)
+	{
+		int size = static_cast<int>(sort_order.size());
+		if (size >= num_of_employees)
+		{
+			loop = false;
+		}
+		else
+		{
+			bool used = false;
+			int max = 0;
+			for (int k = 0; k < num_of_employees - 1; k++)
+			{
+				if (sal[k] < sal[k + 1] and sal[k] != 0)
+				{
+					max = k + 1;
+					used = true;
+				}
+				else if (sal[k] > sal[k + 1] and sal[k] != 0)
+				{
+					max = k;
+					used = true;
+				}
+				else if (max == 0 and not used)
+				{
+					max = num_of_employees - 1;
+				}
+			}
+			sal.at(max) = 0;
+			sort_order.push_back(max);
+		}
+	}
+	i = 0;
+	std::cout << "-----\n"
+		<< "Сортированный список: \n";
+	while (i < num_of_employees)
+	{
+		std::cout
+			<< "---------------------------\n"
+			<< "Имя сотрудника: "
+			<< p->names[sort_order[i]] << std::endl
+			<< "Зарплата сотрудника: "
+			<< p->salary[sort_order[i]] << std::endl
+			<< "---------------------------\n";
+		i++;
+	}
 }
 
 
