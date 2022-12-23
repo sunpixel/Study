@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 
 
@@ -38,7 +37,7 @@ void comparer(std::string s1, std::string s2)
 	std::cout << "\n----------------------\n";
 }
 
-struct Person 
+struct Person
 {
 	std::string* names;
 	double* salary;
@@ -121,7 +120,7 @@ void exercise_4()
 
 void exercise_5()
 {
-	Person *p, d;
+	Person* p, d;
 	p = &d;
 	int i = 0, num_of_employees = 0;
 	std::cout << "Введите колличество сотрудников: ";
@@ -139,14 +138,13 @@ void exercise_5()
 		std::cin.ignore();
 		std::cout << "Введите зарплату сотрудника: ";
 		std::cin >> p->salary[i];
-
 		sal.push_back(p->salary[i]);
-
 		i++;
 	}
 
 	i = 0;
-	std::cout << "---\n" 
+	std::cout << "\n"
+		<< "---\n"
 		<< "Не сортированный список.\n";
 
 	while (i < num_of_employees)
@@ -171,27 +169,17 @@ void exercise_5()
 		}
 		else
 		{
-			bool used = false;
-			int max = 0;
-			for (int k = 0; k < num_of_employees - 1; k++)
+			int max = 0, num = 0;
+			for (int k = 0; k < num_of_employees; k++)
 			{
-				if (sal[k] < sal[k + 1] and sal[k] != 0)
+				if (sal[k] > max)
 				{
-					max = k + 1;
-					used = true;
-				}
-				else if (sal[k] > sal[k + 1] and sal[k] != 0)
-				{
-					max = k;
-					used = true;
-				}
-				else if (max == 0 and not used)
-				{
-					max = num_of_employees - 1;
+					max = sal[k];
+					num = k;
 				}
 			}
-			sal.at(max) = 0;
-			sort_order.push_back(max);
+			sal.at(num) = 0;
+			sort_order.push_back(num);
 		}
 	}
 	i = 0;
