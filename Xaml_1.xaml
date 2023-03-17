@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1196" Width="845">
+        Title="MainWindow" Height="450" Width="420">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -25,19 +25,19 @@
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
-        <Style x:Key="RoundButton" TargetType="{x:Type Button}">
+        <Style x:Key="Rounded" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Padding" Value="1"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" CornerRadius="100" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                        <Border x:Name="border" CornerRadius="20" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -62,27 +62,83 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="FocusVisual1">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background1" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border1" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background1" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border1" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background1" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border1" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background1" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border1" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground1" Color="#FF838383"/>
+        <Style x:Key="ButtonZero" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual1}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background1}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border1}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border1}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground1}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
-    <Grid Background="Black">
-        <TextBox x:Name="View_port" HorizontalAlignment="Center" Height="132" Margin="0,10,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="828" Background="{x:Null}" Foreground="White" FontSize="96" TextAlignment="Right" BorderBrush="{x:Null}" IsEnabled="False"/>
-        <Button x:Name="Number_one" Style="{DynamicResource RoundButton}" Content="1" HorizontalAlignment="Left" Height="175" Margin="38,375,0,0" VerticalAlignment="Top" Width="176" Background="#FFE28804" FontSize="72" Click="Number_one_Click"/>
-        <Button x:Name="Number_four" Style="{DynamicResource RoundButton}" Content="4" HorizontalAlignment="Left" Height="175" Margin="38,575,0,0" VerticalAlignment="Top" Width="176" Background="#FFE28804" FontSize="72" Click="Number_four_Click"/>
-        <Button x:Name="Number_seven" Style="{DynamicResource RoundButton}" Content="7" HorizontalAlignment="Left" Height="175" Margin="38,775,0,0" VerticalAlignment="Top" Width="176" Background="#FFE28804" FontSize="72" Click="Number_seven_Click"/>
-        <Button x:Name="Number_zero" Style="{DynamicResource RoundButton}" Content="0" HorizontalAlignment="Left" Height="175" Margin="38,975,0,0" VerticalAlignment="Top" Width="376" Background="#FFE28804" FontSize="72" Click="Number_zero_Click"/>
-        <Button x:Name="Number_two" Style="{DynamicResource RoundButton}" Content="2" HorizontalAlignment="Left" Height="175" Margin="238,375,0,0" VerticalAlignment="Top" Width="176" Background="#FFE28804" FontSize="72" Click="Number_two_Click"/>
-        <Button x:Name="Number_three" Style="{DynamicResource RoundButton}" Content="3" HorizontalAlignment="Left" Height="175" Margin="438,375,0,0" VerticalAlignment="Top" Width="176" Background="#FFE28804" FontSize="72" Click="Number_three_Click"/>
-        <Button x:Name="Action_minus" Style="{DynamicResource RoundButton}" Content="-" HorizontalAlignment="Left" Height="175" Margin="638,375,0,0" VerticalAlignment="Top" Width="176" Background="#FF929292" FontSize="72" Click="Action_minus_Click"/>
-        <Button x:Name="Number_five" Style="{DynamicResource RoundButton}" Content="5" HorizontalAlignment="Left" Height="175" Margin="238,575,0,0" VerticalAlignment="Top" Width="176" Background="#FFE28804" FontSize="72" Click="Number_five_Click"/>
-        <Button x:Name="Number_six" Style="{DynamicResource RoundButton}" Content="6" HorizontalAlignment="Left" Height="175" Margin="438,575,0,0" VerticalAlignment="Top" Width="176" Background="#FFE28804" FontSize="72" Click="Number_six_Click"/>
-        <Button x:Name="Action_multiply" Style="{DynamicResource RoundButton}" Content="*" HorizontalAlignment="Left" Height="175" Margin="638,575,0,0" VerticalAlignment="Top" Width="176" Background="#FF929292" FontSize="72" Click="Action_multiply_Click"/>
-        <Button x:Name="Number_eight" Style="{DynamicResource RoundButton}" Content="8" HorizontalAlignment="Left" Height="175" Margin="238,775,0,0" VerticalAlignment="Top" Width="176" Background="#FFE28804" FontSize="72" Click="Number_eight_Click"/>
-        <Button x:Name="Number_nine" Style="{DynamicResource RoundButton}" Content="9" HorizontalAlignment="Left" Height="175" Margin="438,775,0,0" VerticalAlignment="Top" Width="176" Background="#FFE28804" FontSize="72" Click="Number_nine_Click"/>
-        <Button x:Name="Action_divide" Style="{DynamicResource RoundButton}" Content="/" HorizontalAlignment="Left" Height="175" Margin="638,775,0,0" VerticalAlignment="Top" Width="176" Background="#FF929292" FontSize="72" Click="Action_divide_Click"/>
-        <Button x:Name="Action_dot" Style="{DynamicResource RoundButton}" Content="," HorizontalAlignment="Left" Height="175" Margin="438,975,0,0" VerticalAlignment="Top" Width="176" Background="#FFE28804" FontSize="96" Click="Action_dot_Click"/>
-        <Button x:Name="Action_calculate" Style="{DynamicResource RoundButton}" Content="=" HorizontalAlignment="Left" Height="175" Margin="638,975,0,0" VerticalAlignment="Top" Width="176" Background="#FF929292" FontSize="72" Click="Action_calculate_Click"/>
-        <Button x:Name="Action_plus" Style="{DynamicResource RoundButton}" Content="+" HorizontalAlignment="Left" Height="175" Margin="638,175,0,0" VerticalAlignment="Top" Width="176" Background="#FF929292" FontSize="72" Click="Action_plus_Click"/>
-        <Button x:Name="Action_plus_minus" Style="{DynamicResource RoundButton}" Content="+/-" HorizontalAlignment="Left" Height="175" Margin="438,175,0,0" VerticalAlignment="Top" Width="176" Background="#FF929292" FontSize="72" Click="Action_plus_minus_Click"/>
-        <Button x:Name="Action_precentage" Style="{DynamicResource RoundButton}" Content="%" HorizontalAlignment="Left" Height="175" Margin="238,175,0,0" VerticalAlignment="Top" Width="176" Background="#FF929292" FontSize="72" Click="Action_precentage_Click"/>
-        <Button x:Name="Action_clear" Style="{DynamicResource RoundButton}" Content="С" HorizontalAlignment="Left" Height="175" Margin="38,175,0,0" VerticalAlignment="Top" Width="176" Background="#FF929292" FontSize="72" Click="Action_clear_Click"/>
+    <Grid Background="#FF2F2F2F">
+        <TextBox HorizontalAlignment="Left" Height="43" Margin="10,10,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="255" FontSize="32" FontFamily="Arial" TextAlignment="Right" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" IsEnabled="False"/>
+        <Button x:Name="Button_Clear" Style="{DynamicResource Rounded}" Content="C" HorizontalAlignment="Left" Height="60" Width="60" Margin="10,75,0,0" VerticalAlignment="Top" Background="#FFCDCDCD" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_Clear_Click"/>
+        <Button x:Name="Button_change_sign" Style="{DynamicResource Rounded}" Content="+/-" HorizontalAlignment="Left" Height="60" Width="60" Margin="75,75,0,0" VerticalAlignment="Top" Background="#FFCDCDCD" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_change_sign_Click"/>
+        <Button x:Name="Button_precent" Style="{DynamicResource Rounded}" Content="%" HorizontalAlignment="Left" Height="60" Width="60" Margin="140,75,0,0" VerticalAlignment="Top" Background="#FFCDCDCD" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_precent_Click"/>
+        <Button x:Name="Button_divide" Style="{DynamicResource Rounded}" Content="/" HorizontalAlignment="Left" Height="60" Width="60" Margin="205,75,0,0" VerticalAlignment="Top" Background="#FFB93D21" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_divide_Click"/>
+        <Button x:Name="Button_seven" Style="{DynamicResource Rounded}" Content="7" HorizontalAlignment="Left" Height="60" Width="60" Margin="10,140,0,0" VerticalAlignment="Top" Background="#FFE57B06" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_seven_Click"/>
+        <Button x:Name="Button_eight" Style="{DynamicResource Rounded}" Content="8" HorizontalAlignment="Left" Height="60" Width="60" Margin="75,140,0,0" VerticalAlignment="Top" Background="#FFE57B06" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_eight_Click"/>
+        <Button x:Name="Button_nine" Style="{DynamicResource Rounded}" Content="9" HorizontalAlignment="Left" Height="60" Width="60" Margin="140,140,0,0" VerticalAlignment="Top" Background="#FFE57B06" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_nine_Click"/>
+        <Button x:Name="Button_multiply" Style="{DynamicResource Rounded}" Content="X" HorizontalAlignment="Left" Height="60" Width="60" Margin="205,140,0,0" VerticalAlignment="Top" Background="#FFB93D21" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_multiply_Click"/>
+        <Button x:Name="Button_four" Style="{DynamicResource Rounded}" Content="4" HorizontalAlignment="Left" Height="60" Width="60" Margin="10,205,0,0" VerticalAlignment="Top" Background="#FFE57B06" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_four_Click"/>
+        <Button x:Name="Button_five" Style="{DynamicResource Rounded}" Content="5" HorizontalAlignment="Left" Height="60" Width="60" Margin="75,205,0,0" VerticalAlignment="Top" Background="#FFE57B06" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_five_Click"/>
+        <Button x:Name="Button_six" Style="{DynamicResource Rounded}" Content="6" HorizontalAlignment="Left" Height="60" Width="60" Margin="140,205,0,0" VerticalAlignment="Top" Background="#FFE57B06" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_six_Click"/>
+        <Button x:Name="Button_minus" Style="{DynamicResource Rounded}" Content="-" HorizontalAlignment="Left" Height="60" Width="60" Margin="205,205,0,0" VerticalAlignment="Top" Background="#FFB93D21" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_minus_Click"/>
+        <Button x:Name="Button_one" Style="{DynamicResource Rounded}" Content="1" HorizontalAlignment="Left" Height="60" Width="60" Margin="10,270,0,0" VerticalAlignment="Top" Background="#FFE57B06" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_one_Click"/>
+        <Button x:Name="Button_two" Style="{DynamicResource Rounded}" Content="2" HorizontalAlignment="Left" Height="60" Width="60" Margin="75,270,0,0" VerticalAlignment="Top" Background="#FFE57B06" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_two_Click"/>
+        <Button x:Name="Button_three" Style="{DynamicResource Rounded}" Content="3" HorizontalAlignment="Left" Height="60" Width="60" Margin="140,270,0,0" VerticalAlignment="Top" Background="#FFE57B06" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_three_Click"/>
+        <Button x:Name="Button_plus" Style="{DynamicResource Rounded}" Content="+" HorizontalAlignment="Left" Height="60" Width="60" Margin="205,270,0,0" VerticalAlignment="Top" Background="#FFB93D21" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_plus_Click"/>
+        <Button x:Name="Button_zero" Style="{DynamicResource ButtonZero}" Content="0" HorizontalAlignment="Left" Height="60" Width="125" Margin="10,335,0,0" VerticalAlignment="Top" Background="#FFE57B06" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_zero_Click"/>
+        <Button x:Name="Button_dot" Style="{DynamicResource Rounded}" Content="," HorizontalAlignment="Left" Height="60" Width="60" Margin="140,335,0,0" VerticalAlignment="Top" Background="#FFE57B06" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_dot_Click"/>
+        <Button x:Name="Button_equals" Style="{DynamicResource Rounded}" Content="=" HorizontalAlignment="Left" Height="60" Width="60" Margin="205,335,0,0" VerticalAlignment="Top" Background="#FFB93D21" BorderBrush="{x:Null}" FontSize="20" FontWeight="Bold" Click="Button_equals_Click"/>
+
     </Grid>
 </Window>
