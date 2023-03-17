@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -24,143 +24,100 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+        // Clear everything
+        private void Button_Clear_Click(object sender, RoutedEventArgs e)
+        {
 
-        string number = "";
-        float trans = -1;   // Во что превратится число в итоге
-        float[] numbers = new float[] { };
-        int[] action = new int[] { };
-        private void Action_clear_Click(object sender, RoutedEventArgs e)
-        {
-            number = "0";
-            Array.Clear(numbers, 0, numbers.Length);
-            Array.Clear(action, 0, action.Length);
-            Edit_text();
         }
+        // Do a sign change
+        private void Button_change_sign_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+        // Precentegise number
+        private void Button_precent_Click(object sender, RoutedEventArgs e)
+        {
 
-        private void Number_one_Click(object sender, RoutedEventArgs e)
-        {
-            number += "1";
-            Edit_text();
         }
+        // Do division operation on numbers
+        private void Button_divide_Click(object sender, RoutedEventArgs e)
+        {
 
-        private void Number_two_Click(object sender, RoutedEventArgs e)
-        {
-            number += "2";
-            Edit_text();
         }
+        // Put 7
+        private void Button_seven_Click(object sender, RoutedEventArgs e)
+        {
 
-        private void Number_three_Click(object sender, RoutedEventArgs e)
-        {
-            number += "3";
-            Edit_text();
         }
+        // Put 8
+        private void Button_eight_Click(object sender, RoutedEventArgs e)
+        {
 
-        private void Number_four_Click(object sender, RoutedEventArgs e)
-        {
-            number += "4";
-            Edit_text();
         }
+        // Put 9
+        private void Button_nine_Click(object sender, RoutedEventArgs e)
+        {
 
-        private void Number_five_Click(object sender, RoutedEventArgs e)
-        {
-            number += "5";
-            Edit_text();
         }
+        // Multiply numbers
+        private void Button_multiply_Click(object sender, RoutedEventArgs e)
+        {
 
-        private void Number_six_Click(object sender, RoutedEventArgs e)
-        {
-            number += "6";
-            Edit_text();
         }
+        // Put 4
+        private void Button_four_Click(object sender, RoutedEventArgs e)
+        {
 
-        private void Number_seven_Click(object sender, RoutedEventArgs e)
-        {
-            number += "7";
-            Edit_text();
         }
+        // Put 5
+        private void Button_five_Click(object sender, RoutedEventArgs e)
+        {
 
-        private void Number_eight_Click(object sender, RoutedEventArgs e)
-        {
-            number += "8";
-            Edit_text();
         }
+        // Put 6
+        private void Button_six_Click(object sender, RoutedEventArgs e)
+        {
 
-        private void Number_nine_Click(object sender, RoutedEventArgs e)
-        {
-            number += "9";
-            Edit_text();
         }
+        // Do a minus operation on numbers
+        private void Button_minus_Click(object sender, RoutedEventArgs e)
+        {
 
-        private void Number_zero_Click(object sender, RoutedEventArgs e)
-        {
-            number += "0";
-            Edit_text();
         }
-        private void Action_plus_Click(object sender, RoutedEventArgs e)
+        // Put 1
+        private void Button_one_Click(object sender, RoutedEventArgs e)
         {
-            trans = float.Parse(number);
-            numbers.Append(trans);
-            trans = 0;
-            action.Append(0);
-        }
 
-        private void Action_minus_Click(object sender, RoutedEventArgs e)
-        {
-            trans = float.Parse(number);
-            numbers.Append(trans);
-            trans = 0;
-            action.Append(1);
         }
+        // put 2
+        private void Button_two_Click(object sender, RoutedEventArgs e)
+        {
 
-        private void Action_multiply_Click(object sender, RoutedEventArgs e)
-        {
-            trans = float.Parse(number);
-            numbers.Append(trans);
-            trans = 0;
-            action.Append(2);
         }
+        // Put 3
+        private void Button_three_Click(object sender, RoutedEventArgs e)
+        {
 
-        private void Action_divide_Click(object sender, RoutedEventArgs e)
-        {
-            trans = float.Parse(number);
-            numbers.Append(trans);
-            trans = 0;
-            action.Append(3);
         }
+        // Summurize the numbers
+        private void Button_plus_Click(object sender, RoutedEventArgs e)
+        {
 
-        private void Action_dot_Click(object sender, RoutedEventArgs e)
-        {
-            trans = float.Parse(number);
-            numbers.Append(trans);
-            trans = 0;
-            action.Append(4);
         }
-        private void Action_plus_minus_Click(object sender, RoutedEventArgs e)
+        // Put 0
+        private void Button_zero_Click(object sender, RoutedEventArgs e)
         {
-            trans = float.Parse(number);
-            numbers.Append(trans);
-            trans = 0;
-            action.Append(5);
-        }
 
-        private void Action_precentage_Click(object sender, RoutedEventArgs e)
-        {
-            trans = float.Parse(number);
-            numbers.Append(trans);
-            trans = 0;
-            action.Append(6);
         }
-
-
-        private void Action_calculate_Click(object sender, RoutedEventArgs e)
+        // Put a decimal point
+        private void Button_dot_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
-        
-        private void Edit_text()
+        // Show results in the texbox window
+        private void Button_equals_Click(object sender, RoutedEventArgs e)
         {
-            View_port.Text = number.ToString();
+
         }
     }
 }
