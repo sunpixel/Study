@@ -20,6 +20,10 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool is_First;
+        int multiplication = 10;
+        int num = 0;
+        string number = string.Empty;
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +31,7 @@ namespace WpfApp1
         // Clear everything
         private void Button_Clear_Click(object sender, RoutedEventArgs e)
         {
-
+            number.
         }
         // Do a sign change
         private void Button_change_sign_Click(object sender, RoutedEventArgs e)
@@ -41,6 +45,55 @@ namespace WpfApp1
         }
         // Do division operation on numbers
         private void Button_divide_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        // Put 0
+        private void Button_zero_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (is_First)
+                {
+                    
+                }
+                else
+                {
+
+                }
+            }
+            catch
+            {
+
+            }
+        }
+        // Put 1
+        private void Button_one_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        // put 2
+        private void Button_two_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        // Put 3
+        private void Button_three_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        // Put 4
+        private void Button_four_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        // Put 5
+        private void Button_five_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        // Put 6
+        private void Button_six_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -64,48 +117,13 @@ namespace WpfApp1
         {
 
         }
-        // Put 4
-        private void Button_four_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        // Put 5
-        private void Button_five_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        // Put 6
-        private void Button_six_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         // Do a minus operation on numbers
         private void Button_minus_Click(object sender, RoutedEventArgs e)
         {
 
         }
-        // Put 1
-        private void Button_one_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        // put 2
-        private void Button_two_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        // Put 3
-        private void Button_three_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         // Summurize the numbers
         private void Button_plus_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        // Put 0
-        private void Button_zero_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -116,6 +134,11 @@ namespace WpfApp1
         }
         // Show results in the texbox window
         private void Button_equals_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
 
         }
