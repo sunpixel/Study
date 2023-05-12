@@ -50,8 +50,8 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <TextBox Height="50" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" TextChanged="TextBox_TextChanged" Margin="0,0,310,0" Width="290" BorderBrush="{x:Null}"/>
-        <Button x:Name="Button_0" Style="{DynamicResource RoundButton}" Content="0" HorizontalAlignment="Left" Height="60" Margin="10,340,0,0" VerticalAlignment="Top" Width="200" Click="Button_0_Click"/>
+        <TextBox x:Name="Result" Height="50" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Margin="0,0,310,0" Width="290" BorderBrush="{x:Null}"/>
+        <Button x:Name="Button_0" Style="{DynamicResource RoundButton}" Content="0" HorizontalAlignment="Left" Height="60" Margin="10,340,0,0" VerticalAlignment="Top" Width="135" Click="Button_0_Click"/>
         <Button x:Name="Button_1" Style="{DynamicResource RoundButton}" Content="1" HorizontalAlignment="Left" Height="60" Margin="10,270,0,0" VerticalAlignment="Top" Width="60" Click="Button_1_Click"/>
         <Button x:Name="Button_2" Style="{DynamicResource RoundButton}" Content="2" HorizontalAlignment="Left" Height="60" Margin="80,270,0,0" VerticalAlignment="Top" Width="60" Click="Button_2_Click"/>
         <Button x:Name="Button_3" Style="{DynamicResource RoundButton}" Content="3" HorizontalAlignment="Left" Height="60" Margin="150,270,0,0" VerticalAlignment="Top" Width="60" Click="Button_3_Click"/>
@@ -68,6 +68,7 @@
         <Button x:Name="Button_Multiplication" Style="{DynamicResource RoundButton}" Content="*" HorizontalAlignment="Left" Height="60" Margin="220,130,0,0" VerticalAlignment="Top" Width="60" Click="Button_Multiplication_Click"/>
         <Button x:Name="Button_minus" Style="{DynamicResource RoundButton}" Content="-" HorizontalAlignment="Left" Height="60" Margin="220,200,0,0" VerticalAlignment="Top" Width="60" Click="Button_minus_Click"/>
         <Button x:Name="Button_plus" Style="{DynamicResource RoundButton}" Content="+" HorizontalAlignment="Left" Height="60" Margin="220,270,0,0" VerticalAlignment="Top" Width="60" Click="Button_plus_Click"/>
-        <Button x:Name="Button_point" Style="{DynamicResource RoundButton}" Content="=" HorizontalAlignment="Left" Height="60" Margin="220,340,0,0" VerticalAlignment="Top" Width="60" Click="Button_point_Click"/>
+        <Button x:Name="Button_point" Style="{DynamicResource RoundButton}" Content="=" HorizontalAlignment="Left" Height="60" Margin="150,340,0,0" VerticalAlignment="Top" Width="60" Click="Button_point_Click"/>
+        <Button x:Name="Button_Equals" Style="{DynamicResource RoundButton}" Content="=" HorizontalAlignment="Left" Height="60" Margin="220,340,0,0" VerticalAlignment="Top" Width="60" Click="Button_Equals_Click"/>
     </Grid>
 </Window>
