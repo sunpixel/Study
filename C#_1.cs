@@ -156,6 +156,11 @@ namespace C_
 
         }
 
+        void handle_math()
+        {
+
+        }
+
         void print_result(string num1)
         {
             
