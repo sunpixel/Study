@@ -242,23 +242,30 @@ namespace C_
         }
         private void Button_Division_Click(object sender, RoutedEventArgs e)
         {
-            if (action != 0) { num1 = handle_math(1); print_result(num1.ToString()); }
-            else { action = 1; }
+            num1 = double.Parse(number);
+            if (action != 0) { num1 = handle_math(1); result += " = "; result += num1.ToString(); print_result(result); }
+            else { action = 1; result += " / "; swap = true; number = null; print_result(result); }
         }
 
         private void Button_Multiplication_Click(object sender, RoutedEventArgs e)
         {
-            action = 2;
+            num1 = double.Parse(number);
+            if (action != 0) { num1 = handle_math(2); result += " = "; result += num1.ToString(); print_result(result); }
+            else { action = 2; result += " * "; swap = true; number = null; print_result(result); }
         }
 
         private void Button_minus_Click(object sender, RoutedEventArgs e)
         {
-            action = 3;
+            num1 = double.Parse(number);
+            if (action != 0) { num1 = handle_math(3); result += " = "; result += num1.ToString(); print_result(result); }
+            else { action = 3; result += " - "; swap = true; number = null; print_result(result); }
         }
 
         private void Button_plus_Click(object sender, RoutedEventArgs e)
         {
-            action = 4;
+            num1 = double.Parse(number);
+            if (action != 0) { num1 = handle_math(4); result += " = "; result += num1.ToString(); print_result(result); }
+            else { action = 4; result += " + "; swap = true; number = null; print_result(result); }
         }
 
         private void Button_point_Click(object sender, RoutedEventArgs e)
@@ -275,7 +282,8 @@ namespace C_
 
         private void Button_Equals_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (action != 0) { num1 = handle_math(action); result += " = "; result += num1.ToString(); print_result(result); result = num1.ToString(); }
+            else { }
         }
 
         double handle_math(int var)
