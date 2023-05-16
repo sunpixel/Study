@@ -28,10 +28,10 @@ namespace C_
 
 
         string result, number;
-        double num1, num2;
+        double num1, num2 = 0;
         int action;
         bool first = true;
-        bool dec, swap = false;
+        bool dec, swap, point, calc_performed = false;
 
 
         /*action
@@ -47,7 +47,7 @@ namespace C_
 
         private void Button_Clear_Click(object sender, RoutedEventArgs e)
         {
-            first = true; action = 0; num1 = 0; num2 = 0; number = "0"; dec = false; result = null; print_result(result); swap = false;
+            first = true; action = 0; num1 = 0; num2 = 0; number = "0"; dec = false; result = null; print_result(result); swap = false; calc_performed = false;
         }
 
         private void Button_plus_minus_Click(object sender, RoutedEventArgs e)
@@ -64,34 +64,51 @@ namespace C_
         {
             if (swap != true)
             {
-                if (first) { first = true;
-                   number = "0"; result = "0"; print_result(result); }
+                if (first)
+                {
+                    num1 = 0;
+                    action = 0;
+                    first = true;
+                    number = "0"; result = "0"; print_result(result);
+                }
                 else { number += 0; result += 0; print_result(result); }
                 num1 = double.Parse(number);
             }
             else
             {
-                if (first) { first = true;
-                   number = "0"; result = "0"; print_result(result); }
+                if (dec == false)
+                {
+                    if (first & point == false) { point = true; number = "0"; result += "0"; print_result(result); }
+                    else if (point) { }
+                    else { number = "0"; result += "0"; print_result(result); }
+                }
                 else { number += 0; result += 0; print_result(result); }
                 num2 = double.Parse(number);
             }
         }
 
-            private void Button_1_Click(object sender, RoutedEventArgs e)
+        private void Button_1_Click(object sender, RoutedEventArgs e)
         {
             if (swap != true)
             {
-                if (first) { first = false;
-                   number = "1"; result = "1"; print_result(result); }
+                if (first)
+                {
+                    action = 0;
+                    num1 = 0;
+                    first = false;
+                    number = "1"; result = "1"; print_result(result);
+                }
                 else { number += 1; result += 1; print_result(result); }
                 num1 = double.Parse(number);
             }
             else
             {
-                if (first) { first = false;
-                   number = "1"; result = "1"; print_result(result); }
-                else { number += 1; result += 1;  print_result(result); }
+                if (first)
+                {
+                    first = false;
+                    number = "1"; result += "1"; print_result(result);
+                }
+                else { number += 1; result += 1; print_result(result); }
                 num2 = double.Parse(number);
             }
         }
@@ -100,15 +117,23 @@ namespace C_
         {
             if (swap != true)
             {
-                if (first) { first = false;
-                   number = "2"; result = "2"; print_result(result); }
+                if (first)
+                {
+                    action = 0;
+                    num1 = 0;
+                    first = false;
+                    number = "2"; result = "2"; print_result(result);
+                }
                 else { number += 2; result += 2; print_result(result); }
                 num1 = double.Parse(number);
             }
             else
             {
-                if (first) {first = false;
-                    number = "2"; result = "2"; print_result(result); }
+                if (first)
+                {
+                    first = false;
+                    number = "2"; result += "2"; print_result(result);
+                }
                 else { number += 2; result += 2; print_result(result); }
                 num2 = double.Parse(number);
             }
@@ -118,15 +143,23 @@ namespace C_
         {
             if (swap != true)
             {
-                if (first) {first = false;
-                    number = "3"; result = "3"; print_result(result); }
+                if (first)
+                {
+                    action = 0;
+                    num1 = 0;
+                    first = false;
+                    number = "3"; result = "3"; print_result(result);
+                }
                 else { number += 3; result += 3; print_result(result); }
                 num1 = double.Parse(number);
             }
             else
             {
-                if (first) {first = false;
-                    number = "3"; result = "3"; print_result(result); }
+                if (first)
+                {
+                    first = false;
+                    number = "3"; result += "3"; print_result(result);
+                }
                 else { number += 3; result += 3; print_result(result); }
                 num2 = double.Parse(number);
             }
@@ -136,15 +169,23 @@ namespace C_
         {
             if (swap != true)
             {
-                if (first) {first = false;
-                    number = "4"; result += "4"; print_result(result); }
+                if (first)
+                {
+                    action = 0;
+                    num1 = 0;
+                    first = false;
+                    number = "4"; result += "4"; print_result(result);
+                }
                 else { number += 4; result += 4; print_result(result); }
                 num1 = double.Parse(number);
             }
             else
             {
-                if (first) {first = false;
-                    number = "4"; result = "4"; print_result(result); }
+                if (first)
+                {
+                    first = false;
+                    number = "4"; result += "4"; print_result(result);
+                }
                 else { number += 4; result += 4; print_result(result); }
                 num2 = double.Parse(number);
             }
@@ -154,15 +195,23 @@ namespace C_
         {
             if (swap != true)
             {
-                if (first) {first = false;
-                    number = "5"; result = "5"; print_result(result); }
+                if (first)
+                {
+                    action = 0;
+                    num1 = 0;
+                    first = false;
+                    number = "5"; result = "5"; print_result(result);
+                }
                 else { number += 5; result += 5; print_result(result); }
                 num1 = double.Parse(number);
             }
             else
             {
-                if (first) {first = false;
-                    number = "5"; result = "5"; print_result(result); }
+                if (first)
+                {
+                    first = false;
+                    number = "5"; result += "5"; print_result(result);
+                }
                 else { number += 5; result += 5; print_result(result); }
                 num2 = double.Parse(number);
             }
@@ -172,15 +221,23 @@ namespace C_
         {
             if (swap != true)
             {
-                if (first) {first = false;
-                    number = "6"; result = "6"; print_result(result); }
+                if (first)
+                {
+                    action = 0;
+                    num1 = 0;
+                    first = false;
+                    number = "6"; result = "6"; print_result(result);
+                }
                 else { number += 6; result += 6; print_result(result); }
                 num1 = double.Parse(number);
             }
             else
             {
-                if (first) {first = false;
-                    number = "6"; result = "6"; print_result(result); }
+                if (first)
+                {
+                    first = false;
+                    number = "6"; result += "6"; print_result(result);
+                }
                 else { number += 6; result += 6; print_result(result); }
                 num2 = double.Parse(number);
             }
@@ -190,15 +247,23 @@ namespace C_
         {
             if (swap != true)
             {
-                if (first) {first = false;
-                    number = "7"; result = "7"; print_result(result); }
+                if (first)
+                {
+                    action = 0;
+                    num1 = 0;
+                    first = false;
+                    number = "7"; result = "7"; print_result(result);
+                }
                 else { number += 7; result += 7; print_result(result); }
                 num1 = double.Parse(number);
             }
             else
             {
-                if (first) {first = false; 
-                   number = "7"; result = "7"; print_result(result); }
+                if (first)
+                {
+                    first = false;
+                    number = "7"; result += "7"; print_result(result);
+                }
                 else { number += 7; result += 7; print_result(result); }
                 num2 = double.Parse(number);
             }
@@ -208,17 +273,25 @@ namespace C_
         {
             if (swap != true)
             {
-                if (first) { first = false; 
-                   number = "8"; result = "8"; print_result(result); }
+                if (first)
+                {
+                    action = 0;
+                    num1 = 0;
+                    first = false;
+                    number = "8"; result = "8"; print_result(result);
+                }
                 else { number += 8; result += 8; print_result(result); }
 
                 num1 = double.Parse(number);
             }
             else
             {
-                if (first) { first = false;
-                   number = "8"; result = "8"; print_result(result); }
-                else{ number += 8; result += 8; print_result(result); }
+                if (first)
+                {
+                    first = false;
+                    number = "8"; result += "8"; print_result(result);
+                }
+                else { number += 8; result += 8; print_result(result); }
                 num2 = double.Parse(number);
             }
         }
@@ -227,45 +300,53 @@ namespace C_
         {
             if (swap != true)
             {
-                if (first) { first = false;
-                   number = "9"; result = "9"; print_result(result); }
+                if (first)
+                {
+                    action = 0;
+                    num1 = 0;
+                    first = false;
+                    number = "9"; result = "9"; print_result(result);
+                }
                 else { number += 9; result += 9; print_result(result); }
                 num1 = double.Parse(number);
             }
             else
             {
-                if (first) { first = false; 
-                   number = "9"; result = "9"; print_result(result); }
+                if (first)
+                {
+                    first = false;
+                    number = "9"; result += "9"; print_result(result);
+                }
                 else { number += 9; result += 9; print_result(result); }
                 num2 = double.Parse(number);
             }
         }
         private void Button_Division_Click(object sender, RoutedEventArgs e)
         {
-            num1 = double.Parse(number);
-            if (action != 0) { num1 = handle_math(1); result += " = "; result += num1.ToString(); print_result(result); }
-            else { action = 1; result += " / "; swap = true; number = null; print_result(result); }
+            if (action != 0 & action == 1 & calc_performed) { num1 = handle_math(1); result += " = "; result += num1.ToString(); print_result(result); first = true; dec = false; }
+            else if (action !=  0) { calc_performed = false; num1 = handle_math(action); action = 1; result += " / "; swap = true; number = null; print_result(result); first = true; dec = false; }
+            else { num1 = double.Parse(number); action = 1; result += " / "; swap = true; number = null; print_result(result); first = true; dec = false; }
         }
 
         private void Button_Multiplication_Click(object sender, RoutedEventArgs e)
         {
-            num1 = double.Parse(number);
-            if (action != 0) { num1 = handle_math(2); result += " = "; result += num1.ToString(); print_result(result); }
-            else { action = 2; result += " * "; swap = true; number = null; print_result(result); }
+            if (action != 0 & action == 2 & calc_performed) { num1 = handle_math(2); result += " = "; result += num1.ToString(); print_result(result); first = true; dec = false; }
+            else if (action != 0) { calc_performed = false; num1 = handle_math(action); action = 2; result += " * "; swap = true; number = null; print_result(result); first = true; dec = false; }
+            else { num1 = double.Parse(number); action = 2; result += " * "; swap = true; number = null; print_result(result); first = true; dec = false; }
         }
 
         private void Button_minus_Click(object sender, RoutedEventArgs e)
         {
-            num1 = double.Parse(number);
-            if (action != 0) { num1 = handle_math(3); result += " = "; result += num1.ToString(); print_result(result); }
-            else { action = 3; result += " - "; swap = true; number = null; print_result(result); }
+            if (action != 0 & action == 3 & calc_performed) { num1 = handle_math(3); result += " = "; result += num1.ToString(); print_result(result); first = true; dec = false; }
+            else if (action != 0) { calc_performed = false; num1 = handle_math(action); action = 3; result += " - "; swap = true; number = null; print_result(result); first = true; dec = false; }
+            else { num1 = double.Parse(number); action = 3; result += " - "; swap = true; number = null; print_result(result); first = true; dec = false; }
         }
 
         private void Button_plus_Click(object sender, RoutedEventArgs e)
         {
-            num1 = double.Parse(number);
-            if (action != 0) { num1 = handle_math(4); result += " = "; result += num1.ToString(); print_result(result); }
-            else { action = 4; result += " + "; swap = true; number = null; print_result(result); }
+            if (action != 0 & action == 4 & calc_performed) { num1 = handle_math(4); result += " = "; result += num1.ToString(); print_result(result); first = true; dec = false; }
+            else if (action != 0) { calc_performed = false; num1 = handle_math(action); action = 4; result += " + "; swap = true; number = null; print_result(result); first = true; dec = false; }
+            else { num1 = double.Parse(number); action = 4; result += " + "; swap = true; number = null; print_result(result); first = true; dec = false; }
         }
 
         private void Button_point_Click(object sender, RoutedEventArgs e)
@@ -273,16 +354,22 @@ namespace C_
             if (dec == true) { }
             else
             {
-                first = false;
-                dec = true;
-                result += ".";
-                print_result(result);
+                if (first & num1 == 0) { result = "0."; number = "0,"; first = false; }
+                else
+                {
+                    first = false;
+                    point = false;
+                    dec = true;
+                    result += ".";
+                    number += ",";
+                }
+                    print_result(result);
             }
         }
 
         private void Button_Equals_Click(object sender, RoutedEventArgs e)
         {
-            if (action != 0) { num1 = handle_math(action); result += " = "; result += num1.ToString(); print_result(result); result = num1.ToString(); }
+            if (action != 0) { num1 = handle_math(action); result += " = "; result += num1.ToString(); print_result(result); result = num1.ToString(); calc_performed = true; swap = false; first = true;}
             else { }
         }
 
@@ -305,7 +392,6 @@ namespace C_
 
         void print_result(string num)
         {
-
             Result.Text = num;
         }
     }
