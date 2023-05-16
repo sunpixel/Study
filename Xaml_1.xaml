@@ -70,6 +70,9 @@
         <Button x:Name="Button_plus" Style="{DynamicResource RoundButton}" Content="+" HorizontalAlignment="Left" Height="60" Margin="220,270,0,0" VerticalAlignment="Top" Width="60" Click="Button_plus_Click"/>
         <Button x:Name="Button_point" Style="{DynamicResource RoundButton}" Content="=" HorizontalAlignment="Left" Height="60" Margin="150,340,0,0" VerticalAlignment="Top" Width="60" Click="Button_point_Click"/>
         <Button x:Name="Button_Equals" Style="{DynamicResource RoundButton}" Content="=" HorizontalAlignment="Left" Height="60" Margin="220,340,0,0" VerticalAlignment="Top" Width="60" Click="Button_Equals_Click"/>
-        <ListBox x:Name="History" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="285,60,0,0"/>
+        <ListBox x:Name="History" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="285,60,0,0" SelectionChanged="History_SelectionChanged" BorderBrush="Black" Background="White" Visibility="Hidden"/>
+        <CheckBox x:Name="History_enable" Content="История" HorizontalAlignment="Left" Height="17" Margin="285,0,0,0" VerticalAlignment="Top" Width="73" ClickMode="Press" IsChecked="False" Unchecked="History_disabled" Checked="History_eanbled" RenderTransformOrigin="0.145,-0.237"/>
+        <Button x:Name="delete_all" Content="Нахуй" HorizontalAlignment="Left" Height="35" Margin="290,25,0,0" VerticalAlignment="Top" Width="68" Click="delete_all_Click" Visibility="Hidden"/>
+        <Button x:Name="delete_last" Content="Не Нахуй" HorizontalAlignment="Left" Height="35" Margin="368,25,0,0" VerticalAlignment="Top" Width="68" Click="delete_last_Click" Visibility="Hidden"/>
     </Grid>
 </Window>
