@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using System.Windows;
@@ -66,8 +67,6 @@ namespace C_
             {
                 if (first)
                 {
-                    num1 = 0;
-                    action = 0;
                     first = true;
                     number = "0"; result = "0"; print_result(result);
                 }
@@ -93,8 +92,6 @@ namespace C_
             {
                 if (first)
                 {
-                    action = 0;
-                    num1 = 0;
                     first = false;
                     number = "1"; result = "1"; print_result(result);
                 }
@@ -119,8 +116,6 @@ namespace C_
             {
                 if (first)
                 {
-                    action = 0;
-                    num1 = 0;
                     first = false;
                     number = "2"; result = "2"; print_result(result);
                 }
@@ -145,8 +140,6 @@ namespace C_
             {
                 if (first)
                 {
-                    action = 0;
-                    num1 = 0;
                     first = false;
                     number = "3"; result = "3"; print_result(result);
                 }
@@ -171,8 +164,6 @@ namespace C_
             {
                 if (first)
                 {
-                    action = 0;
-                    num1 = 0;
                     first = false;
                     number = "4"; result += "4"; print_result(result);
                 }
@@ -197,8 +188,6 @@ namespace C_
             {
                 if (first)
                 {
-                    action = 0;
-                    num1 = 0;
                     first = false;
                     number = "5"; result = "5"; print_result(result);
                 }
@@ -223,8 +212,6 @@ namespace C_
             {
                 if (first)
                 {
-                    action = 0;
-                    num1 = 0;
                     first = false;
                     number = "6"; result = "6"; print_result(result);
                 }
@@ -249,8 +236,6 @@ namespace C_
             {
                 if (first)
                 {
-                    action = 0;
-                    num1 = 0;
                     first = false;
                     number = "7"; result = "7"; print_result(result);
                 }
@@ -275,8 +260,6 @@ namespace C_
             {
                 if (first)
                 {
-                    action = 0;
-                    num1 = 0;
                     first = false;
                     number = "8"; result = "8"; print_result(result);
                 }
@@ -302,8 +285,6 @@ namespace C_
             {
                 if (first)
                 {
-                    action = 0;
-                    num1 = 0;
                     first = false;
                     number = "9"; result = "9"; print_result(result);
                 }
@@ -324,13 +305,15 @@ namespace C_
         private void Button_Division_Click(object sender, RoutedEventArgs e)
         {
             if (action != 0 & action == 1 & calc_performed) { num1 = handle_math(1); result += " = "; result += num1.ToString(); print_result(result); first = true; dec = false; }
-            else if (action !=  0) { calc_performed = false; num1 = handle_math(action); action = 1; result += " / "; swap = true; number = null; print_result(result); first = true; dec = false; }
+            else if (calc_performed) { action = 1; result += " / "; swap = true; number = null; print_result(result); first = true; dec = false; }
+            else if (action != 0) { calc_performed = false; num1 = handle_math(action); action = 1; result += " / "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else { num1 = double.Parse(number); action = 1; result += " / "; swap = true; number = null; print_result(result); first = true; dec = false; }
         }
 
         private void Button_Multiplication_Click(object sender, RoutedEventArgs e)
         {
             if (action != 0 & action == 2 & calc_performed) { num1 = handle_math(2); result += " = "; result += num1.ToString(); print_result(result); first = true; dec = false; }
+            else if (calc_performed) { action = 2; result += " * "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else if (action != 0) { calc_performed = false; num1 = handle_math(action); action = 2; result += " * "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else { num1 = double.Parse(number); action = 2; result += " * "; swap = true; number = null; print_result(result); first = true; dec = false; }
         }
@@ -338,6 +321,7 @@ namespace C_
         private void Button_minus_Click(object sender, RoutedEventArgs e)
         {
             if (action != 0 & action == 3 & calc_performed) { num1 = handle_math(3); result += " = "; result += num1.ToString(); print_result(result); first = true; dec = false; }
+            else if (calc_performed) { action = 3; result += " - "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else if (action != 0) { calc_performed = false; num1 = handle_math(action); action = 3; result += " - "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else { num1 = double.Parse(number); action = 3; result += " - "; swap = true; number = null; print_result(result); first = true; dec = false; }
         }
@@ -345,6 +329,7 @@ namespace C_
         private void Button_plus_Click(object sender, RoutedEventArgs e)
         {
             if (action != 0 & action == 4 & calc_performed) { num1 = handle_math(4); result += " = "; result += num1.ToString(); print_result(result); first = true; dec = false; }
+            else if (calc_performed) { action = 4; result += " + "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else if (action != 0) { calc_performed = false; num1 = handle_math(action); action = 4; result += " + "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else { num1 = double.Parse(number); action = 4; result += " + "; swap = true; number = null; print_result(result); first = true; dec = false; }
         }
@@ -375,18 +360,14 @@ namespace C_
 
         double handle_math(int var)
         {
-            if (num2 != 0)
+            if (var == 1)
             {
-                if (var == 1)
-                {
-                    if (num2 == 0) { print_result("Zero division error"); return 0; }
-                    else { num1 = num1 / num2; return num1; }
-                }
-                else if (var == 2) { num1 = num1 * num2; return num1; }
-                else if (var == 3) { num1 = num1 - num2; return num1; }
-                else if (var == 4) { num1 = num1 + num2; return num1; }
-                else { return num1; }
+                if (num2 == 0) { Result.Text = "Zero division Error!!"; Task.Delay(2000); return Math.Round(num1, 2); }
+                else { num1 = num1 / num2; return Math.Round(num1, 2); }
             }
+            else if (var == 2) { num1 = num1 * num2; return Math.Round(num1, 2); }
+            else if (var == 3) { num1 = num1 - num2; return Math.Round(num1, 2); }
+            else if (var == 4) { num1 = num1 + num2; return Math.Round(num1, 2); }
             else { return num1; }
         }
 
