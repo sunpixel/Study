@@ -1,19 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Threading.Tasks.Dataflow;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace C_
 {
@@ -31,8 +20,12 @@ namespace C_
         string result, number;
         double num1, num2 = 0;
         int action;
+        int num = 0;
         bool first = true;
         bool dec, swap, point, calc_performed = false;
+
+        List<string> istor = new List<string>();
+
 
 
         /*action
@@ -75,7 +68,7 @@ namespace C_
             }
             else
             {
-                if (dec == false)
+                if (first & !dec)
                 {
                     if (first & point == false) { point = true; number = "0"; result += "0"; print_result(result); }
                     else if (point) { }
@@ -304,7 +297,7 @@ namespace C_
         }
         private void Button_Division_Click(object sender, RoutedEventArgs e)
         {
-            if (action != 0 & action == 1 & calc_performed) { num1 = handle_math(1); result += " = "; result += num1.ToString(); print_result(result); first = true; dec = false; }
+            if (action != 0 & action == 1 & !calc_performed) { num1 = handle_math(1); result += " = "; result += num1.ToString(); istor.Add(result); print_result(result); first = true; dec = false; }
             else if (calc_performed) { action = 1; result += " / "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else if (action != 0) { calc_performed = false; num1 = handle_math(action); action = 1; result += " / "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else { num1 = double.Parse(number); action = 1; result += " / "; swap = true; number = null; print_result(result); first = true; dec = false; }
@@ -312,7 +305,7 @@ namespace C_
 
         private void Button_Multiplication_Click(object sender, RoutedEventArgs e)
         {
-            if (action != 0 & action == 2 & calc_performed) { num1 = handle_math(2); result += " = "; result += num1.ToString(); print_result(result); first = true; dec = false; }
+            if (action != 0 & action == 2 & !calc_performed) { num1 = handle_math(2); result += " = "; result += num1.ToString(); istor.Add(result); print_result(result); first = true; dec = false; }
             else if (calc_performed) { action = 2; result += " * "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else if (action != 0) { calc_performed = false; num1 = handle_math(action); action = 2; result += " * "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else { num1 = double.Parse(number); action = 2; result += " * "; swap = true; number = null; print_result(result); first = true; dec = false; }
@@ -320,19 +313,21 @@ namespace C_
 
         private void Button_minus_Click(object sender, RoutedEventArgs e)
         {
-            if (action != 0 & action == 3 & calc_performed) { num1 = handle_math(3); result += " = "; result += num1.ToString(); print_result(result); first = true; dec = false; }
+            if (action != 0 & action == 3 & !calc_performed) { num1 = handle_math(3); result += " = "; result += num1.ToString(); istor.Add(result); print_result(result); first = true; dec = false; }
             else if (calc_performed) { action = 3; result += " - "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else if (action != 0) { calc_performed = false; num1 = handle_math(action); action = 3; result += " - "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else { num1 = double.Parse(number); action = 3; result += " - "; swap = true; number = null; print_result(result); first = true; dec = false; }
         }
 
+
         private void Button_plus_Click(object sender, RoutedEventArgs e)
         {
-            if (action != 0 & action == 4 & calc_performed) { num1 = handle_math(4); result += " = "; result += num1.ToString(); print_result(result); first = true; dec = false; }
+            if (action != 0 & action == 4 & !calc_performed) { num1 = handle_math(4); result += " = "; result += num1.ToString(); istor.Add(result); print_result(result); first = true; dec = false;}
             else if (calc_performed) { action = 4; result += " + "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else if (action != 0) { calc_performed = false; num1 = handle_math(action); action = 4; result += " + "; swap = true; number = null; print_result(result); first = true; dec = false; }
             else { num1 = double.Parse(number); action = 4; result += " + "; swap = true; number = null; print_result(result); first = true; dec = false; }
         }
+
 
         private void Button_point_Click(object sender, RoutedEventArgs e)
         {
@@ -348,14 +343,44 @@ namespace C_
                     result += ".";
                     number += ",";
                 }
-                    print_result(result);
+                print_result(result);
             }
         }
 
+
         private void Button_Equals_Click(object sender, RoutedEventArgs e)
         {
-            if (action != 0) { num1 = handle_math(action); result += " = "; result += num1.ToString(); print_result(result); result = num1.ToString(); calc_performed = true; swap = false; first = true;}
+            if (action != 0)
+            {
+                num1 = handle_math(action); result += " = "; result += num1.ToString(); istor.Add(result); print_result(result);
+                result = num1.ToString(); calc_performed = true; swap = false; first = true;
+            }
             else { }
+        }
+
+        private void delete_all_Click(object sender, RoutedEventArgs e)
+        {
+            istor.Clear(); History.Items.Clear(); num = 0;
+        }
+
+        private void delete_last_Click(object sender, RoutedEventArgs e)
+        {
+            if (istor.Count != 0)
+            {
+                istor.RemoveAt(istor.Count - 1); History.Items.RemoveAt(istor.Count);
+                if (num != 0) { num--; }
+            }
+            else { }
+        }
+
+        private void History_disabled(object sender, RoutedEventArgs e)
+        {
+            if (History_enable.IsChecked == false) { History.Visibility = Visibility.Hidden; delete_last.Visibility = Visibility.Hidden; delete_all.Visibility = Visibility.Hidden; }
+        }
+
+        private void History_eanbled(object sender, RoutedEventArgs e)
+        {
+            if (History_enable.IsChecked == true) { History.Visibility = Visibility.Visible; delete_last.Visibility = Visibility.Visible; delete_all.Visibility = Visibility.Visible; }
         }
 
         double handle_math(int var)
@@ -371,9 +396,17 @@ namespace C_
             else { return num1; }
         }
 
-        void print_result(string num)
+        private void History_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Result.Text = num;
+
+        }
+
+        void print_result(string numer)
+        {
+            Result.Text = numer;
+            if (istor.Count == 0) { }
+            else if (istor.Count == num) { }
+            else { History.Items.Add(istor[num]); num++; }
         }
     }
 }
