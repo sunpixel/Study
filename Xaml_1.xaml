@@ -6,73 +6,34 @@
         xmlns:local="clr-namespace:C_"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="450">
-    <Window.Resources>
-        <Style x:Key="FocusVisual">
-            <Setter Property="Control.Template">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
-        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
-        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
-        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
-        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
-        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
-        <Style x:Key="RoundButton" TargetType="{x:Type Button}">
-            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="BorderThickness" Value="0.5"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="1"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true" CornerRadius="15"/>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsDefaulted" Value="true"/>
-                            <Trigger Property="IsMouseOver" Value="true"/>
-                            <Trigger Property="IsPressed" Value="true"/>
-                            <Trigger Property="IsEnabled" Value="false"/>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="188*"/>
+        </Grid.RowDefinitions>
         <TextBox x:Name="Result" Height="50" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" BorderBrush="{x:Null}" IsEnabled="False" Margin="0,0,160,0"/>
-        <Button x:Name="Button_0" Style="{DynamicResource RoundButton}" Content="0" HorizontalAlignment="Left" Height="60" Margin="10,340,0,0" VerticalAlignment="Top" Width="135" Click="Button_0_Click"/>
-        <Button x:Name="Button_1" Style="{DynamicResource RoundButton}" Content="1" HorizontalAlignment="Left" Height="60" Margin="10,270,0,0" VerticalAlignment="Top" Width="60" Click="Button_1_Click"/>
-        <Button x:Name="Button_2" Style="{DynamicResource RoundButton}" Content="2" HorizontalAlignment="Left" Height="60" Margin="80,270,0,0" VerticalAlignment="Top" Width="60" Click="Button_2_Click"/>
-        <Button x:Name="Button_3" Style="{DynamicResource RoundButton}" Content="3" HorizontalAlignment="Left" Height="60" Margin="150,270,0,0" VerticalAlignment="Top" Width="60" Click="Button_3_Click"/>
-        <Button x:Name="Button_4" Style="{DynamicResource RoundButton}" Content="4" HorizontalAlignment="Left" Height="60" Margin="10,200,0,0" VerticalAlignment="Top" Width="60" Click="Button_4_Click" Grid.Row="1" Grid.Column="13"/>
-        <Button x:Name="Button_5" Style="{DynamicResource RoundButton}" Content="5" HorizontalAlignment="Left" Height="60" Margin="80,200,0,0" VerticalAlignment="Top" Width="60" Click="Button_5_Click"/>
-        <Button x:Name="Button_6" Style="{DynamicResource RoundButton}" Content="6" HorizontalAlignment="Left" Height="60" Margin="150,200,0,0" VerticalAlignment="Top" Width="60" Click="Button_6_Click"/>
-        <Button x:Name="Button_7" Style="{DynamicResource RoundButton}" Content="7" HorizontalAlignment="Left" Height="60" Margin="10,130,0,0" VerticalAlignment="Top" Width="60" Click="Button_7_Click" FontSize="8"/>
-        <Button x:Name="Button_8" Style="{DynamicResource RoundButton}" Content="8" HorizontalAlignment="Left" Height="60" Margin="80,130,0,0" VerticalAlignment="Top" Width="60" Click="Button_8_Click"/>
-        <Button x:Name="Button_9" Style="{DynamicResource RoundButton}" Content="9" HorizontalAlignment="Left" Height="60" Margin="150,130,0,0" VerticalAlignment="Top" Width="60" Click="Button_9_Click"/>
-        <Button x:Name="Button_Clear" Style="{DynamicResource RoundButton}" Content="C" HorizontalAlignment="Left" Height="60" Margin="10,60,0,0" VerticalAlignment="Top" Width="60" Click="Button_Clear_Click" FontFamily="Arial Black"/>
-        <Button x:Name="Button_plus_minus" Style="{DynamicResource RoundButton}" Content="+/-" HorizontalAlignment="Left" Height="60" Margin="80,60,0,0" VerticalAlignment="Top" Width="60" Click="Button_plus_minus_Click"/>
-        <Button x:Name="Button_Precentage" Style="{DynamicResource RoundButton}" Content="%" HorizontalAlignment="Left" Height="60" Margin="150,60,0,0" VerticalAlignment="Top" Width="60" Click="Button_Precentage_Click"/>
-        <Button x:Name="Button_Division" Style="{DynamicResource RoundButton}" Content="/" HorizontalAlignment="Left" Height="60" Margin="220,60,0,0" VerticalAlignment="Top" Width="60" Click="Button_Division_Click"/>
-        <Button x:Name="Button_Multiplication" Style="{DynamicResource RoundButton}" Content="*" HorizontalAlignment="Left" Height="60" Margin="220,130,0,0" VerticalAlignment="Top" Width="60" Click="Button_Multiplication_Click"/>
-        <Button x:Name="Button_minus" Style="{DynamicResource RoundButton}" Content="-" HorizontalAlignment="Left" Height="60" Margin="220,200,0,0" VerticalAlignment="Top" Width="60" Click="Button_minus_Click"/>
-        <Button x:Name="Button_plus" Style="{DynamicResource RoundButton}" Content="+" HorizontalAlignment="Left" Height="60" Margin="220,270,0,0" VerticalAlignment="Top" Width="60" Click="Button_plus_Click"/>
-        <Button x:Name="Button_point" Style="{DynamicResource RoundButton}" Content="=" HorizontalAlignment="Left" Height="60" Margin="150,340,0,0" VerticalAlignment="Top" Width="60" Click="Button_point_Click"/>
-        <Button x:Name="Button_Equals" Style="{DynamicResource RoundButton}" Content="=" HorizontalAlignment="Left" Height="60" Margin="220,340,0,0" VerticalAlignment="Top" Width="60" Click="Button_Equals_Click"/>
-        <ListBox x:Name="History" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="285,60,0,0" SelectionChanged="History_SelectionChanged" BorderBrush="Black" Background="White" Visibility="Hidden"/>
+        <Button x:Name="Button_0" Style="{DynamicResource RoundButton}" Content="0" HorizontalAlignment="Left" Height="60" Margin="10,282,0,0" VerticalAlignment="Top" Width="135" Click="Button_0_Click" Grid.Row="1"/>
+        <Button x:Name="Button_1" Style="{DynamicResource RoundButton}" Content="1" HorizontalAlignment="Left" Height="60" Margin="10,212,0,0" VerticalAlignment="Top" Width="60" Click="Button_1_Click" Grid.Row="1"/>
+        <Button x:Name="Button_2" Style="{DynamicResource RoundButton}" Content="2" HorizontalAlignment="Left" Height="60" Margin="80,212,0,0" VerticalAlignment="Top" Width="60" Click="Button_2_Click" Grid.Row="1"/>
+        <Button x:Name="Button_3" Style="{DynamicResource RoundButton}" Content="3" HorizontalAlignment="Left" Height="60" Margin="150,212,0,0" VerticalAlignment="Top" Width="60" Click="Button_3_Click" Grid.Row="1"/>
+        <Button x:Name="Button_4" Style="{DynamicResource RoundButton}" Content="4" HorizontalAlignment="Left" Height="60" Margin="10,142,0,0" VerticalAlignment="Top" Width="60" Click="Button_4_Click" Grid.Row="1"/>
+        <Button x:Name="Button_5" Style="{DynamicResource RoundButton}" Content="5" HorizontalAlignment="Left" Height="60" Margin="80,142,0,0" VerticalAlignment="Top" Width="60" Click="Button_5_Click" Grid.Row="1"/>
+        <Button x:Name="Button_6" Style="{DynamicResource RoundButton}" Content="6" HorizontalAlignment="Left" Height="60" Margin="150,142,0,0" VerticalAlignment="Top" Width="60" Click="Button_6_Click" Grid.Row="1"/>
+        <Button x:Name="Button_7" Style="{DynamicResource RoundButton}" Content="7" HorizontalAlignment="Left" Height="60" Margin="10,72,0,0" VerticalAlignment="Top" Width="60" Click="Button_7_Click" FontSize="8" Grid.Row="1"/>
+        <Button x:Name="Button_8" Style="{DynamicResource RoundButton}" Content="8" HorizontalAlignment="Left" Height="60" Margin="80,72,0,0" VerticalAlignment="Top" Width="60" Click="Button_8_Click" Grid.Row="1"/>
+        <Button x:Name="Button_9" Style="{DynamicResource RoundButton}" Content="9" HorizontalAlignment="Left" Height="60" Margin="150,72,0,0" VerticalAlignment="Top" Width="60" Click="Button_9_Click" Grid.Row="1"/>
+        <Button x:Name="Button_Clear" Style="{DynamicResource RoundButton}" Content="C" HorizontalAlignment="Left" Height="60" Margin="10,2,0,0" VerticalAlignment="Top" Width="60" Click="Button_Clear_Click" FontFamily="Arial" Grid.Row="1"/>
+        <Button x:Name="Button_plus_minus" Style="{DynamicResource RoundButton}" Content="+/-" HorizontalAlignment="Left" Height="60" Margin="80,2,0,0" VerticalAlignment="Top" Width="60" Click="Button_plus_minus_Click" Grid.Row="1"/>
+        <Button x:Name="Button_Precentage" Style="{DynamicResource RoundButton}" Content="%" HorizontalAlignment="Left" Height="60" Margin="150,2,0,0" VerticalAlignment="Top" Width="60" Click="Button_Precentage_Click" Grid.Row="1"/>
+        <Button x:Name="Button_Division" Style="{DynamicResource RoundButton}" Content="/" HorizontalAlignment="Left" Height="60" Margin="220,2,0,0" VerticalAlignment="Top" Width="60" Click="Button_Division_Click" Grid.Row="1"/>
+        <Button x:Name="Button_Multiplication" Style="{DynamicResource RoundButton}" Content="*" HorizontalAlignment="Left" Height="60" Margin="220,72,0,0" VerticalAlignment="Top" Width="60" Click="Button_Multiplication_Click" Grid.Row="1"/>
+        <Button x:Name="Button_minus" Style="{DynamicResource RoundButton}" Content="-" HorizontalAlignment="Left" Height="60" Margin="220,142,0,0" VerticalAlignment="Top" Width="60" Click="Button_minus_Click" Grid.Row="1"/>
+        <Button x:Name="Button_plus" Style="{DynamicResource RoundButton}" Content="+" HorizontalAlignment="Left" Height="60" Margin="220,212,0,0" VerticalAlignment="Top" Width="60" Click="Button_plus_Click" Grid.Row="1"/>
+        <Button x:Name="Button_point" Style="{DynamicResource RoundButton}" Content="=" HorizontalAlignment="Left" Height="60" Margin="150,282,0,0" VerticalAlignment="Top" Width="60" Click="Button_point_Click" Grid.Row="1"/>
+        <Button x:Name="Button_Equals" Style="{DynamicResource RoundButton}" Content="=" HorizontalAlignment="Left" Height="60" Margin="220,282,0,0" VerticalAlignment="Top" Width="60" Click="Button_Equals_Click" Grid.Row="1"/>
+        <ListBox x:Name="History" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="285,2,0,0" SelectionChanged="History_SelectionChanged" BorderBrush="Black" Background="White" Visibility="Hidden" Grid.Row="1"/>
         <CheckBox x:Name="History_enable" Content="История" HorizontalAlignment="Left" Height="17" Margin="285,0,0,0" VerticalAlignment="Top" Width="73" ClickMode="Press" IsChecked="False" Unchecked="History_disabled" Checked="History_eanbled" RenderTransformOrigin="0.145,-0.237"/>
-        <Button x:Name="delete_all" Content="Нахуй" HorizontalAlignment="Left" Height="35" Margin="290,25,0,0" VerticalAlignment="Top" Width="68" Click="delete_all_Click" Visibility="Hidden"/>
-        <Button x:Name="delete_last" Content="Не Нахуй" HorizontalAlignment="Left" Height="35" Margin="368,25,0,0" VerticalAlignment="Top" Width="68" Click="delete_last_Click" Visibility="Hidden"/>
+        <Button x:Name="delete_all" Content="Нахуй" HorizontalAlignment="Left" Height="35" Margin="290,25,0,0" VerticalAlignment="Top" Width="68" Click="delete_all_Click" Visibility="Hidden" Grid.RowSpan="2"/>
+        <Button x:Name="delete_last" Content="Не Нахуй" HorizontalAlignment="Left" Height="35" Margin="368,25,0,0" VerticalAlignment="Top" Width="68" Click="delete_last_Click" Visibility="Hidden" Grid.RowSpan="2"/>
     </Grid>
 </Window>
