@@ -29,11 +29,11 @@
         <Button x:Name="Button_Multiplication" Style="{DynamicResource RoundButton}" Content="*" HorizontalAlignment="Left" Height="60" Margin="220,72,0,0" VerticalAlignment="Top" Width="60" Click="Button_Multiplication_Click" Grid.Row="1"/>
         <Button x:Name="Button_minus" Style="{DynamicResource RoundButton}" Content="-" HorizontalAlignment="Left" Height="60" Margin="220,142,0,0" VerticalAlignment="Top" Width="60" Click="Button_minus_Click" Grid.Row="1"/>
         <Button x:Name="Button_plus" Style="{DynamicResource RoundButton}" Content="+" HorizontalAlignment="Left" Height="60" Margin="220,212,0,0" VerticalAlignment="Top" Width="60" Click="Button_plus_Click" Grid.Row="1"/>
-        <Button x:Name="Button_point" Style="{DynamicResource RoundButton}" Content="=" HorizontalAlignment="Left" Height="60" Margin="150,282,0,0" VerticalAlignment="Top" Width="60" Click="Button_point_Click" Grid.Row="1"/>
+        <Button x:Name="Button_point" Style="{DynamicResource RoundButton}" Content="." HorizontalAlignment="Left" Height="60" Margin="150,282,0,0" VerticalAlignment="Top" Width="60" Click="Button_point_Click" Grid.Row="1"/>
         <Button x:Name="Button_Equals" Style="{DynamicResource RoundButton}" Content="=" HorizontalAlignment="Left" Height="60" Margin="220,282,0,0" VerticalAlignment="Top" Width="60" Click="Button_Equals_Click" Grid.Row="1"/>
         <ListBox x:Name="History" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="285,2,0,0" SelectionChanged="History_SelectionChanged" BorderBrush="Black" Background="White" Visibility="Hidden" Grid.Row="1"/>
         <CheckBox x:Name="History_enable" Content="История" HorizontalAlignment="Left" Height="17" Margin="285,0,0,0" VerticalAlignment="Top" Width="73" ClickMode="Press" IsChecked="False" Unchecked="History_disabled" Checked="History_eanbled" RenderTransformOrigin="0.145,-0.237"/>
-        <Button x:Name="delete_all" Content="Нахуй" HorizontalAlignment="Left" Height="35" Margin="290,25,0,0" VerticalAlignment="Top" Width="68" Click="delete_all_Click" Visibility="Hidden" Grid.RowSpan="2"/>
-        <Button x:Name="delete_last" Content="Не Нахуй" HorizontalAlignment="Left" Height="35" Margin="368,25,0,0" VerticalAlignment="Top" Width="68" Click="delete_last_Click" Visibility="Hidden" Grid.RowSpan="2"/>
+        <Button x:Name="delete_all" Content="ALL " HorizontalAlignment="Left" Height="35" Margin="290,25,0,0" VerticalAlignment="Top" Width="68" Click="delete_all_Click" Visibility="Hidden" Grid.RowSpan="2"/>
+        <Button x:Name="delete_last" Content="LAST" HorizontalAlignment="Left" Height="35" Margin="368,25,0,0" VerticalAlignment="Top" Width="68" Click="delete_last_Click" Visibility="Hidden" Grid.RowSpan="2"/>
     </Grid>
 </Window>
