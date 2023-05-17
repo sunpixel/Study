@@ -12,25 +12,25 @@
             <RowDefinition Height="188*"/>
         </Grid.RowDefinitions>
         <TextBox x:Name="Result" Height="50" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" BorderBrush="{x:Null}" IsEnabled="False" Margin="0,0,160,0"/>
-        <Button x:Name="Button_0" Style="{DynamicResource RoundButton}" Content="0" HorizontalAlignment="Left" Height="60" Margin="10,282,0,0" VerticalAlignment="Top" Width="135" Click="Button_0_Click" Grid.Row="1"/>
-        <Button x:Name="Button_1" Style="{DynamicResource RoundButton}" Content="1" HorizontalAlignment="Left" Height="60" Margin="10,212,0,0" VerticalAlignment="Top" Width="60" Click="Button_1_Click" Grid.Row="1"/>
-        <Button x:Name="Button_2" Style="{DynamicResource RoundButton}" Content="2" HorizontalAlignment="Left" Height="60" Margin="80,212,0,0" VerticalAlignment="Top" Width="60" Click="Button_2_Click" Grid.Row="1"/>
-        <Button x:Name="Button_3" Style="{DynamicResource RoundButton}" Content="3" HorizontalAlignment="Left" Height="60" Margin="150,212,0,0" VerticalAlignment="Top" Width="60" Click="Button_3_Click" Grid.Row="1"/>
-        <Button x:Name="Button_4" Style="{DynamicResource RoundButton}" Content="4" HorizontalAlignment="Left" Height="60" Margin="10,142,0,0" VerticalAlignment="Top" Width="60" Click="Button_4_Click" Grid.Row="1"/>
-        <Button x:Name="Button_5" Style="{DynamicResource RoundButton}" Content="5" HorizontalAlignment="Left" Height="60" Margin="80,142,0,0" VerticalAlignment="Top" Width="60" Click="Button_5_Click" Grid.Row="1"/>
-        <Button x:Name="Button_6" Style="{DynamicResource RoundButton}" Content="6" HorizontalAlignment="Left" Height="60" Margin="150,142,0,0" VerticalAlignment="Top" Width="60" Click="Button_6_Click" Grid.Row="1"/>
-        <Button x:Name="Button_7" Style="{DynamicResource RoundButton}" Content="7" HorizontalAlignment="Left" Height="60" Margin="10,72,0,0" VerticalAlignment="Top" Width="60" Click="Button_7_Click" FontSize="8" Grid.Row="1"/>
-        <Button x:Name="Button_8" Style="{DynamicResource RoundButton}" Content="8" HorizontalAlignment="Left" Height="60" Margin="80,72,0,0" VerticalAlignment="Top" Width="60" Click="Button_8_Click" Grid.Row="1"/>
-        <Button x:Name="Button_9" Style="{DynamicResource RoundButton}" Content="9" HorizontalAlignment="Left" Height="60" Margin="150,72,0,0" VerticalAlignment="Top" Width="60" Click="Button_9_Click" Grid.Row="1"/>
-        <Button x:Name="Button_Clear" Style="{DynamicResource RoundButton}" Content="C" HorizontalAlignment="Left" Height="60" Margin="10,2,0,0" VerticalAlignment="Top" Width="60" Click="Button_Clear_Click" FontFamily="Arial" Grid.Row="1"/>
-        <Button x:Name="Button_plus_minus" Style="{DynamicResource RoundButton}" Content="+/-" HorizontalAlignment="Left" Height="60" Margin="80,2,0,0" VerticalAlignment="Top" Width="60" Click="Button_plus_minus_Click" Grid.Row="1"/>
-        <Button x:Name="Button_Precentage" Style="{DynamicResource RoundButton}" Content="%" HorizontalAlignment="Left" Height="60" Margin="150,2,0,0" VerticalAlignment="Top" Width="60" Click="Button_Precentage_Click" Grid.Row="1"/>
-        <Button x:Name="Button_Division" Style="{DynamicResource RoundButton}" Content="/" HorizontalAlignment="Left" Height="60" Margin="220,2,0,0" VerticalAlignment="Top" Width="60" Click="Button_Division_Click" Grid.Row="1"/>
-        <Button x:Name="Button_Multiplication" Style="{DynamicResource RoundButton}" Content="*" HorizontalAlignment="Left" Height="60" Margin="220,72,0,0" VerticalAlignment="Top" Width="60" Click="Button_Multiplication_Click" Grid.Row="1"/>
-        <Button x:Name="Button_minus" Style="{DynamicResource RoundButton}" Content="-" HorizontalAlignment="Left" Height="60" Margin="220,142,0,0" VerticalAlignment="Top" Width="60" Click="Button_minus_Click" Grid.Row="1"/>
-        <Button x:Name="Button_plus" Style="{DynamicResource RoundButton}" Content="+" HorizontalAlignment="Left" Height="60" Margin="220,212,0,0" VerticalAlignment="Top" Width="60" Click="Button_plus_Click" Grid.Row="1"/>
-        <Button x:Name="Button_point" Style="{DynamicResource RoundButton}" Content="." HorizontalAlignment="Left" Height="60" Margin="150,282,0,0" VerticalAlignment="Top" Width="60" Click="Button_point_Click" Grid.Row="1"/>
-        <Button x:Name="Button_Equals" Style="{DynamicResource RoundButton}" Content="=" HorizontalAlignment="Left" Height="60" Margin="220,282,0,0" VerticalAlignment="Top" Width="60" Click="Button_Equals_Click" Grid.Row="1"/>
+        <Button x:Name="Button_0" Content="0" HorizontalAlignment="Left" Height="60" Margin="10,282,0,0" VerticalAlignment="Top" Width="135" Click="Button_0_Click" Grid.Row="1"/>
+        <Button x:Name="Button_1" Content="1" HorizontalAlignment="Left" Height="60" Margin="10,212,0,0" VerticalAlignment="Top" Width="60" Click="Button_1_Click" Grid.Row="1"/>
+        <Button x:Name="Button_2" Content="2" HorizontalAlignment="Left" Height="60" Margin="80,212,0,0" VerticalAlignment="Top" Width="60" Click="Button_2_Click" Grid.Row="1"/>
+        <Button x:Name="Button_3" Content="3" HorizontalAlignment="Left" Height="60" Margin="150,212,0,0" VerticalAlignment="Top" Width="60" Click="Button_3_Click" Grid.Row="1"/>
+        <Button x:Name="Button_4" Content="4" HorizontalAlignment="Left" Height="60" Margin="10,142,0,0" VerticalAlignment="Top" Width="60" Click="Button_4_Click" Grid.Row="1"/>
+        <Button x:Name="Button_5" Content="5" HorizontalAlignment="Left" Height="60" Margin="80,142,0,0" VerticalAlignment="Top" Width="60" Click="Button_5_Click" Grid.Row="1"/>
+        <Button x:Name="Button_6" Content="6" HorizontalAlignment="Left" Height="60" Margin="150,142,0,0" VerticalAlignment="Top" Width="60" Click="Button_6_Click" Grid.Row="1"/>
+        <Button x:Name="Button_7" Content="7" HorizontalAlignment="Left" Height="60" Margin="10,72,0,0" VerticalAlignment="Top" Width="60" Click="Button_7_Click" FontSize="8" Grid.Row="1"/>
+        <Button x:Name="Button_8" Content="8" HorizontalAlignment="Left" Height="60" Margin="80,72,0,0" VerticalAlignment="Top" Width="60" Click="Button_8_Click" Grid.Row="1"/>
+        <Button x:Name="Button_9" Content="9" HorizontalAlignment="Left" Height="60" Margin="150,72,0,0" VerticalAlignment="Top" Width="60" Click="Button_9_Click" Grid.Row="1"/>
+        <Button x:Name="Button_Clear" Content="C" HorizontalAlignment="Left" Height="60" Margin="10,2,0,0" VerticalAlignment="Top" Width="60" Click="Button_Clear_Click" FontFamily="Arial" Grid.Row="1"/>
+        <Button x:Name="Button_plus_minus" Content="+/-" HorizontalAlignment="Left" Height="60" Margin="80,2,0,0" VerticalAlignment="Top" Width="60" Click="Button_plus_minus_Click" Grid.Row="1"/>
+        <Button x:Name="Button_Precentage" Content="%" HorizontalAlignment="Left" Height="60" Margin="150,2,0,0" VerticalAlignment="Top" Width="60" Click="Button_Precentage_Click" Grid.Row="1"/>
+        <Button x:Name="Button_Division" Content="/" HorizontalAlignment="Left" Height="60" Margin="220,2,0,0" VerticalAlignment="Top" Width="60" Click="Button_Division_Click" Grid.Row="1"/>
+        <Button x:Name="Button_Multiplication"  Content="*" HorizontalAlignment="Left" Height="60" Margin="220,72,0,0" VerticalAlignment="Top" Width="60" Click="Button_Multiplication_Click" Grid.Row="1"/>
+        <Button x:Name="Button_minus"  Content="-" HorizontalAlignment="Left" Height="60" Margin="220,142,0,0" VerticalAlignment="Top" Width="60" Click="Button_minus_Click" Grid.Row="1"/>
+        <Button x:Name="Button_plus" Content="+" HorizontalAlignment="Left" Height="60" Margin="220,212,0,0" VerticalAlignment="Top" Width="60" Click="Button_plus_Click" Grid.Row="1"/>
+        <Button x:Name="Button_point"  Content="." HorizontalAlignment="Left" Height="60" Margin="150,282,0,0" VerticalAlignment="Top" Width="60" Click="Button_point_Click" Grid.Row="1"/>
+        <Button x:Name="Button_Equals"  Content="=" HorizontalAlignment="Left" Height="60" Margin="220,282,0,0" VerticalAlignment="Top" Width="60" Click="Button_Equals_Click" Grid.Row="1"/>
         <ListBox x:Name="History" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="285,2,0,0" SelectionChanged="History_SelectionChanged" BorderBrush="Black" Background="White" Visibility="Hidden" Grid.Row="1"/>
         <CheckBox x:Name="History_enable" Content="История" HorizontalAlignment="Left" Height="17" Margin="285,0,0,0" VerticalAlignment="Top" Width="73" ClickMode="Press" IsChecked="False" Unchecked="History_disabled" Checked="History_eanbled" RenderTransformOrigin="0.145,-0.237"/>
         <Button x:Name="delete_all" Content="ALL " HorizontalAlignment="Left" Height="35" Margin="290,25,0,0" VerticalAlignment="Top" Width="68" Click="delete_all_Click" Visibility="Hidden" Grid.RowSpan="2"/>
