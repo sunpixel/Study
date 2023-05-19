@@ -1,14 +1,29 @@
-<Window x:Class="NotePad.settings"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:NotePad"
-        mc:Ignorable="d"
-        Title="settings" Height="450" Width="800"
-        WindowStartupLocation="CenterOwner"
-        >
-    <Grid>
-        
-    </Grid>
-</Window>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace NotePad
+{
+    /// <summary>
+    /// Логика взаимодействия для settings.xaml
+    /// </summary>
+    
+    public partial class settings : Window
+    {
+        public settings()
+        {
+            InitializeComponent();
+
+        }
+    }
+}
