@@ -6,19 +6,19 @@
 
 using namespace std;
 
-double f(double x)   //x * e^ x = 1;
+double f(double x)   // 2sin(x - 0.6) = 1.5 - x
 {
-    return x * exp(x) - 1;
+    return 2 * sin(x-0.6) - 1.5 + x;
 }
 
-double f1(double x)   // Первая производная (x + 1) * e ^ x = 0;
+double f1(double x)   // Первая производная
 {
-    return (x + 1) * exp(x);
+    return 2 * cos(x - 0.6) + 1;
 }
 
-double fi(double x)   //  x = 1 / e^x
+double fi(double x)  
 {
-    return 1 / exp(x);
+    return 1.5 - 2 * sin(x - 0.6);
 }
 
 
@@ -47,7 +47,7 @@ void method_1()
             b = 0;
         }
     }
-    
+
     c = (a + b) / 2;
     while (true)
     {
@@ -58,9 +58,8 @@ void method_1()
         i++;
         c = (a + b) / 2;
         if (f(c - p) * f(c + p) < 0) break;
-     
-    }    
-    cout << "x примерно равен " << c << " с точностью " << p << ". \nКоличество итераций: " << i << '\n'; 
+    }
+    cout << "x примерно равен " << c << " с точностью " << p << ". \nКоличество итераций: " << i << '\n';
 }
 
 
@@ -78,7 +77,7 @@ void method_2()
         cout << "Введите конец отрезка: ";
         cin >> b;
         cout << "Введите точность: ";
-        cin >> p;        
+        cin >> p;
     }
 
     c = a - (b - a) / (f(b) - f(a)) * f(a);
@@ -89,7 +88,7 @@ void method_2()
         else if (f(b) * f(c) < 0)
             a = c;
 
-        i++;        
+        i++;
         if (f(c - p) * f(c + p) < 0) break;
         c = a - (b - a) / (f(b) - f(a)) * f(a);
     }
@@ -117,7 +116,7 @@ void method_3()
         x = x0 - f(x0) / f1(x0);
         i++;
         if (f(x - p) * f(x + p) < 0) break;
-        x0 = x; 
+        x0 = x;
     }
     cout << "x примерно равен " << x << " с точностью " << p << ". \nКоличество итераций: " << i << '\n';
 }
@@ -128,7 +127,7 @@ void method_4()
     long double x0 = 0;
     long double x, p;
     int i = 0;
-    
+
     cout << "Введите начальное приближение корня: ";
     cin >> x0;
     cout << "Введите точность: ";
@@ -136,8 +135,8 @@ void method_4()
 
     i = 0;
     while (true)
-    {        
-        x = fi(x0);        
+    {
+        x = fi(x0);
         i++;
         if (f(x - p) * f(x + p) < 0) break;
         x0 = x;
@@ -147,12 +146,39 @@ void method_4()
 
 
 
-int main()
+void choose()
 {
-    setlocale(LC_ALL, "Russian"); 
-    method_1();
-    method_2();
-    method_3();
-    method_4();
+    int x = 0;
+    std::cout << "Выберите метод: \n" << "1 - Дихотомии\n" << "2 - Хорд\n" << "3 - Ньютона\n" << "4 - Простых итераций\n" << "----------------------\n";
+    std::cin >> x;
+    switch (x)
+    {
+    case 1:
+        method_1(); // Дихотомии
+        break;
+    case 2:
+        method_2(); // Хорд
+        break;
+    case 3:
+        method_3(); // Ньютона
+        break;
+    case 4:
+        method_4(); // Простых итераций
+        break;
+    default:
+        std::cout << " Значение выбранно не правильно. \n";
+        break;
+    }
 }
 
+
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    choose();
+    //method_1(); // Дихотомии
+    //method_2(); // Хорд
+    //method_3(); // Ньютона
+    //method_4(); // Простых итераций
+}
