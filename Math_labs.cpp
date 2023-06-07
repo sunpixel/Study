@@ -3,7 +3,7 @@
 #include <math.h>
 #include <iomanip>
 
-
+// http://www.mathprofi.ru/formula_simpsona_metod_trapecij.html
 
 // number 12
 
